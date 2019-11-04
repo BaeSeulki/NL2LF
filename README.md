@@ -90,22 +90,24 @@
     6. 第六名代码实现 [https://github.com/eguilg/nl2sql](https://github.com/eguilg/nl2sql)
 
 #### 主要论文方法及代码实现（Papers&Code）
-> 论文主要以WikiSQL和Spider为评测数据，相应排行榜详见任务主页。
-> 下面主要整理具有代表性的方法，持续更新补充...
-> 注: score表示 | Dev execution accuracy |  Test execution accuracy  |
+> 论文主要以WikiSQL和Spider为评测数据，相应排行榜详见任务主页。  
+> 下面主要整理具有代表性的方法，持续更新补充...  
+> 注: score表示 | Dev execution accuracy |  Test execution accuracy  |  
 
 **`WikiSQL:`** 
 **`Weakly Supervised`** 采用弱监督方法，即不使用sql的逻辑形式作为监督信号
-- [ ] `Paper` Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf). EMNLP 2019.
-  `Code` [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em)
+- [ ] `Paper` Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf). EMNLP 2019.  
+  `Code` [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/  qa-hard-em)
   `Score`  
+
     |84.4 |  83.9  |
     |-|-|
 ---
 **`Supervised`** **`SQLNet框架`**
-- [ ] `Paper` Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.
-  `Code` [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)
+- [ ] `Paper` Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
+  `Code` [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
   `Score`  
+
     |84.4 |  83.9  |
     |-|-|
 
