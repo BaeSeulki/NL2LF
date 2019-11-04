@@ -108,7 +108,7 @@
   `Code` [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
   `Score`  
 
-    |84.4 |  83.9  |
+    |69.8 |  68.0  |
     |-|-|
 
 
