@@ -97,7 +97,7 @@
 **`WikiSQL:`** 
 **`Weakly Supervised`** 采用弱监督方法，即不使用sql的逻辑形式作为监督信号
 - [ ] `Paper` Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf). EMNLP 2019.  
-  `Code` [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/  qa-hard-em)
+  `Code` [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em)  
   `Score`  
 
     |84.4 |  83.9  |
