@@ -1,9 +1,11 @@
-## NL2LF
+## NL2LF 
+___(持续更新中...)___
 > The Resources for "Natural Language to Logical Form" Research;  
 > "自然语言转逻辑形式"研究资料收集: 
 > 本阶段主要以**NL2SQL**的研究为主, 主要包括评测公开数据集、相关论文和部分代码实现、相关博客或公众号文章。
 
-### NL2SQL
+[toc]
+### NL2SQL & Text2SQL
 #### 主要评测数据集(DataSet)
 ---
 - **Academic, Advising, Geography, Restaurants, Scholar, IMDB, Yelp, etc.**  
@@ -113,7 +115,7 @@
 
 
 
-#### 相关资源扩展
+#### 相关资源扩展 (extend resources)
 ##### SQL2Seq
 ##### 语义解析 (Semantic Parsing)
 ##### 图神经网络（GNN)
