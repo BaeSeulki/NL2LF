@@ -94,7 +94,7 @@ ___(持续更新中...)___
 #### 主要论文方法及代码实现（Papers&Code）
 > 论文主要以WikiSQL和Spider为评测数据，相应排行榜详见任务主页。  
 > 下面主要整理具有代表性的方法，持续更新补充...  
-> 注: score表示 | Dev execution accuracy |  Test execution accuracy  |  
+> 注: score表示 | model | Dev execution accuracy |  Test execution accuracy  |  
 
 **`WikiSQL:`** 
 **`Weakly Supervised`** 采用弱监督方法，即不使用sql的逻辑形式作为监督信号
@@ -102,16 +102,50 @@ ___(持续更新中...)___
   `Code` [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em)  
   `Score`  
 
-    |84.4 |  83.9  |
-    |-|-|
+    |Hard-EM|84.4 |  83.9  |
+    |-|-|-|
+
+---
+**`Supervised`** **`ExecutionGuided`**
+`Paper`  
+- [ ]  Wang C, Huang P S, Polozov A, et al. [Robust Text-to-SQL Generation with Execution-Guided Decoding](https://arxiv.org/pdf/1807.03100.pdf)[J]. 2018.  
+- [ ]  Wang C, Brockschmidt M, Singh R. [Pointing out SQL queries from text](https://openreview.net/pdf?id=BkUDW_lCb)[J]. 2018. 
+- [ ]  Dong L, Lapata M. [Coarse-to-fine decoding for neural semantic parsing](https://arxiv.org/pdf/1805.04793.pdf)[J]. 2018.
+- [ ]  Huang P S, Wang C, Singh R, et al. [Natural language to structured query generation via meta-learning](https://arxiv.org/pdf/1803.02400.pdf)[J]. 2018.
+
+
+`Code`  
+- [https://github.com/microsoft/PointerSQL](https://github.com/microsoft/PointerSQL)  
+- [https://github.com/donglixp/coarse2fine](https://github.com/donglixp/coarse2fine)  
+
+`Score`  
+
+|Coarse2Fine + EG| 84.0 | 83.8 |
+|-|-|-|
+| Coarse2Fine | 79.0 | 78.5 |
+| Pointer-SQL + EG | 78.4 |  78.3  |
+| Pointer-SQL | 72.5 | 71.9 |
+
 ---
 **`Supervised`** **`SQLNet框架`**
-- [ ] `Paper` Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
-  `Code` [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
-  `Score`  
+`Paper`  
+- [ ]  Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
+- [ ]  Hwang W, Yim J, Park S, et al. [A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization](https://arxiv.org/pdf/1902.01069.pdf)[J]. 2019.  
+- [ ] He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019.
 
-    |69.8 |  68.0  |
-    |-|-|
+`Code`  
+- [https://github.com/naver/sqlova](https://github.com/naver/sqlova)  
+- [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
+
+`Score`  
+
+| BERT-XSQL-Attention + EG |92.3|91.8|
+|-|-|-|
+| BERT-XSQL-Attention | 89.5 | 88.7 |
+| BERT-SQLova-LSTM|87.2 |  86.2  |
+|BERT-SQLova-LSTM + EG | 90.2 | 89.6 |
+|GloVe-SQLNet-BiLSTM|69.8 |  68.0  |
+
 
 
 
