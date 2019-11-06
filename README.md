@@ -95,8 +95,9 @@ ___(持续更新中...)___
 > 注: score表示 | model | Dev execution accuracy |  Test execution accuracy  |  
 
 #### **`1. WikiSQL:`** 
-**`Weakly Supervised`** 采用弱监督方法，即不使用sql的逻辑形式作为监督信号
- `Paper`
+**`Weakly Supervised`** 采用弱监督方法，即不使用sql的逻辑形式作为监督信号  
+
+`Paper`
 - [ ] Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf)[C]. EMNLP 2019.  
 - [ ] Agarwal R, Liang C, Schuurmans D, et al. [Learning to Generalize from Sparse and Underspecified Rewards](https://arxiv.org/pdf/1902.07198.pdf). 2019.  
 - [ ] Liang C, Norouzi M, Berant J, et al. [Memory augmented policy optimization for program synthesis and semantic parsing](https://papers.nips.cc/paper/8204-memory-augmented-policy-optimization-for-program-synthesis-and-semantic-parsing.pdf)[C].NeurIPS, 2018: 9994-10006.
@@ -114,7 +115,8 @@ ___(持续更新中...)___
 |MAPO | 72.2 | 72.1 |
 
 ---
-**`ExecutionGuided`** 
+**`ExecutionGuided`**  
+
 `Paper`  
 - [ ]  Wang C, Huang P S, Polozov A, et al. [Robust Text-to-SQL Generation with Execution-Guided Decoding](https://arxiv.org/pdf/1807.03100.pdf)[J]. 2018.  
 - [ ]  Wang C, Brockschmidt M, Singh R. [Pointing out SQL queries from text](https://openreview.net/pdf?id=BkUDW_lCb)[J]. 2018. 
@@ -135,7 +137,8 @@ ___(持续更新中...)___
 | Pointer-SQL | 72.5 | 71.9 |
 
 ---
-**`SQLNet Framework`**
+**`SQLNet Framework`**  
+
 `Paper`  
 - [ ]  Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
 - [ ]  Hwang W, Yim J, Park S, et al. [A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization](https://arxiv.org/pdf/1902.01069.pdf)[J]. 2019.  
@@ -155,7 +158,8 @@ ___(持续更新中...)___
 |GloVe-SQLNet-BiLSTM|69.8 |  68.0  |
 
 ---
-**`Model Interactive`**
+**`Model Interactive`**  
+
 `Blog` 
 - [Facebook提出全新交互式语义分析框架，自然语言生成SQL语句准确率提升10%](https://mp.weixin.qq.com/s/B3Rw-Rqy8b4-HtWPBtEI_w)  
 
@@ -168,7 +172,8 @@ ___(持续更新中...)___
 ----
 #### **`2. Spider:`** 
 
-**`GNN Encoding`**
+**`GNN Encoding`**  
+
 `Paper`
 - [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
 - [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP 2019.
@@ -186,7 +191,8 @@ ___(持续更新中...)___
 | GNN w/edge vectors| 32.1 | - |
 
 ---
-**`RATSQL`**
+**`RATSQL`**  
+
 `Paper`
 - [ ] Anonymous [RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://openreview.net/pdf?id=H1egcgHtvB)[C].  
   [Under review on ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB).  
@@ -198,7 +204,8 @@ ___(持续更新中...)___
 |:-:|:-:|:-:|
 
 ---
-**`IRNet`**
+**`IRNet`**  
+
 `Paper`
 - [ ] Guo J, Zhan Z, Gao Y, et al. [Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation](https://arxiv.org/pdf/1905.08205.pdf)[C]. ACL 2019.
   
@@ -214,7 +221,8 @@ ___(持续更新中...)___
 | IRNet| 53.2 | 46.7 | 
 
 ---
-**`EditSQL`**
+**`EditSQL`**  
+
 `Paper`
 - [ ] Zhang R, Yu T, Er H Y, et al. [Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions](https://arxiv.org/pdf/1909.00786.pdf)[C]. EMNLP 2019.
 
@@ -228,7 +236,8 @@ ___(持续更新中...)___
 | EditSQL | 36.4 | 32.9 |  
 
 ----
-**`SQLNet Framework`**
+**`SQLNet Framework`**  
+
 `Paper`
 - [ ] [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP 2019
 - [ ] Yu T, Yasunaga M, Yang K, et al. [Syntaxsqlnet: Syntax tree networks for complex and cross-domaintext-to-sql task](https://arxiv.org/pdf/1810.05237.pdf)[C]. EMNLP 2018.
@@ -249,7 +258,8 @@ ___(持续更新中...)___
 
 ---
 #### 三、相关资源扩展 (extend resources)
-##### 1. SQL2Seq
+##### 1. SQL2Seq  
+
 `Paper`
 - [ ] Xu K, Wu L, Wang Z, et al. [Graph2seq: Graph to sequence learning with attention-based neural networks](https://arxiv.org/pdf/1804.00823.pdf).2018. 
 - [ ] Xu K, Wu L, Wang Z, et al. [SQL-to-text generation with graph-to-sequence model](https://arxiv.org/pdf/1809.05255.pdf)[C]. EMNLP 2018.
@@ -257,9 +267,13 @@ ___(持续更新中...)___
 `Code`
 - [https://github.com/IBM/SQL-to-Text](https://github.com/IBM/SQL-to-Text)
 - [https://github.com/IBM/Graph2Seq](https://github.com/IBM/Graph2Seq)
-- [https://github.com/RandolphVI/Graph2Seq](https://github.com/RandolphVI/Graph2Seq)
-##### 2. 语义解析 (Semantic Parsing)
-##### 3. 图神经网络（GNN)
+- [https://github.com/RandolphVI/Graph2Seq](https://github.com/RandolphVI/Graph2Seq)  
+
+
+##### 2. 语义解析 (Semantic Parsing)  
+
+##### 3. 图神经网络（GNN)  
+
 `Blog`
 - [从图(Graph)到图卷积(Graph Convolution)：漫谈图神经网络模型](https://www.cnblogs.com/SivilTaram/p/graph_neural_network_1.html)
 
