@@ -4,7 +4,11 @@ ___(持续更新中...)___
 > "自然语言转逻辑形式"研究资料收集: 
 > 本阶段主要以**NL2SQL**的研究为主, 主要包括评测公开数据集、相关论文和部分代码实现、相关博客或公众号文章。
 
-[toc]
+[NL2SQL](#nl2sql--text2sql)
+[一、主要评测数据集 dataset](#一主要评测数据集dataset)
+[二、主要论文方法及代码实现 papers&code](#二主要论文方法及代码实现paperscode)
+[三、相关资源扩展 extend-resources](#三相关资源扩展-extend-resources)
+
 ### NL2SQL & Text2SQL
 #### 一、主要评测数据集(DataSet)
 ---
