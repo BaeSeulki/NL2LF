@@ -186,6 +186,18 @@ ___(持续更新中...)___
 | GNN w/edge vectors| 32.1 | - |
 
 ---
+**`RATSQL`**
+`Paper`
+- [ ] Anonymous [RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://openreview.net/pdf?id=H1egcgHtvB)[C].  
+  [Under review on ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB).  
+
+
+`Score`  
+
+| RAT-SQL  |60.6|53.7|
+|:-:|:-:|:-:|
+
+---
 **`IRNet`**
 `Paper`
 - [ ] Guo J, Zhan Z, Gao Y, et al. [Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation](https://arxiv.org/pdf/1905.08205.pdf)[C]. ACL 2019.
