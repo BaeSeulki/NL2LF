@@ -153,6 +153,7 @@ ___(持续更新中...)___
 | BERT-SQLova-LSTM|87.2 |  86.2  |
 |BERT-SQLova-LSTM + EG | 90.2 | 89.6 |
 |GloVe-SQLNet-BiLSTM|69.8 |  68.0  |
+
 ---
 **`Model Interactive`**
 `Blog` 
@@ -192,7 +193,8 @@ ___(持续更新中...)___
 `Code`
 - [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
 
-`Score`
+`Score`  
+
 | IRNet-v2 + BERT  |63.9|55.0|
 |:-:|:-:|:-:|
 | IRNet + BERT-Base | 61.9 | 54.7 |
@@ -207,10 +209,12 @@ ___(持续更新中...)___
 `Code`
 - [https://github.com/ryanzhumich/editsql](https://github.com/ryanzhumich/editsql)
 
-`Score`
+`Score`  
+
 | EditSQL + BERT  |57.6|53.4|
 |:-:|:-:|:-:|
 | EditSQL | 36.4 | 32.9 |  
+
 ----
 **`SQLNet Framework`**
 `Paper`
@@ -222,7 +226,8 @@ ___(持续更新中...)___
 `Code`
 - [https://github.com/taoyds/syntaxSQL](https://github.com/taoyds/syntaxSQL)
 
-`Score`
+`Score`  
+
 | GrammarSQL | 34.8 | 33.8 |
 |:-:|:-:|:-:|
 | SyntaxSQLNet + augment  |24.8|27.2|
