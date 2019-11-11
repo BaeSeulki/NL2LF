@@ -182,9 +182,11 @@ ___(持续更新中...)___
 ----
 #### **`2. Spider:`** 
 
-**`GNN Encoding`**  
+**`GNN Encoding Seq2Seq`**  
 
 `Paper`
+- [ ] Krishnamurthy J, Dasigi P, Gardner M. [Neural semantic parsing with type constraints for semi-structured tables](https://www.aclweb.org/anthology/D17-1160.pdf)[C]. EMNLP 2017.
+- [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
 - [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
 - [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019.
 - [ ] Shaw P, Massey P, Chen A, et al. [Generating Logical Forms from Graph Representations of Text and Entities](https://arxiv.org/pdf/1905.08407.pdf)[C]. ACL 2019.
@@ -195,8 +197,9 @@ ___(持续更新中...)___
 
 `Score`
 
-| Global-GNN  |52.7|47.4|
+| BERTRAND + GNN | 57.9 | 54.6 |
 |:-:|:-:|:-:|
+| Global-GNN  |52.7|47.4|
 | GNN | 40.7 | 39.4 |
 | GNN w/edge vectors| 32.1 | - |
 
