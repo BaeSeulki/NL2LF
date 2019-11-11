@@ -65,12 +65,12 @@ ___(持续更新中...)___
   > 1. Cross-domain Conversational, the Dilaogue version of the Spider and SParC tasks.
   >    继承Spider特点的多轮对话任务，涉及意图澄清。
   + `Home` [https://yale-lily.github.io/cosql](https://yale-lily.github.io/cosql)
-  + `Paper` [CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases](https://arxiv.org/pdf/1909.05378.pdf), _Yu T, Zhang R, Er H Y, et al._, EMNLP 2019. 
+  + `Paper` [CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases](https://arxiv.org/pdf/1909.05378.pdf), _Yu T, Zhang R, Er H Y, et al._, EMNLP-IJCNLP 2019. 
 
 ---
 - **Chinese Spider**
   > 中文版Spider，数据待发布
-  + `Paper` [A Pilot Study for Chinese SQL Semantic Parsing](https://frcchang.github.io/pub/emnlp2019.2.pdf), _Qingkai Min, Yuefeng Shi and Yue Zhang_, EMNLP 2019.
+  + `Paper` [A Pilot Study for Chinese SQL Semantic Parsing](https://frcchang.github.io/pub/emnlp2019.2.pdf), _Qingkai Min, Yuefeng Shi and Yue Zhang_, EMNLP-IJCNLP 2019.
 
 ---
 - **TableQA** 
@@ -108,7 +108,7 @@ ___(持续更新中...)___
 **`Weakly Supervised`** 采用弱监督方法，即不使用sql的逻辑形式作为监督信号  
 
 `Paper`
-- [ ] Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf)[C]. EMNLP 2019.  
+- [ ] Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf)[C]. EMNLP-IJCNLP 2019.  
 - [ ] Agarwal R, Liang C, Schuurmans D, et al. [Learning to Generalize from Sparse and Underspecified Rewards](https://arxiv.org/pdf/1902.07198.pdf). 2019.  
 - [ ] Liang C, Norouzi M, Berant J, et al. [Memory augmented policy optimization for program synthesis and semantic parsing](https://papers.nips.cc/paper/8204-memory-augmented-policy-optimization-for-program-synthesis-and-semantic-parsing.pdf)[C].NeurIPS, 2018: 9994-10006.
 
@@ -174,7 +174,7 @@ ___(持续更新中...)___
 - [Facebook提出全新交互式语义分析框架，自然语言生成SQL语句准确率提升10%](https://mp.weixin.qq.com/s/B3Rw-Rqy8b4-HtWPBtEI_w)  
 
 `Paper`
-- [ ] Yao Z, Su Y, Sun H, et al. [Model-based Interactive Semantic Parsing: A Unified Framework and A Text-to-SQL Case Study](https://arxiv.org/pdf/1910.05389.pdf)[C]. EMNLP 2019.  
+- [ ] Yao Z, Su Y, Sun H, et al. [Model-based Interactive Semantic Parsing: A Unified Framework and A Text-to-SQL Case Study](https://arxiv.org/pdf/1910.05389.pdf)[C]. EMNLP-IJCNLP 2019.  
 
 `Code`
 - [https://github.com/sunlab-osu/MISP](https://github.com/sunlab-osu/MISP)
@@ -186,7 +186,7 @@ ___(持续更新中...)___
 
 `Paper`
 - [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
-- [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP 2019.
+- [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019.
 - [ ] Shaw P, Massey P, Chen A, et al. [Generating Logical Forms from Graph Representations of Text and Entities](https://arxiv.org/pdf/1905.08407.pdf)[C]. ACL 2019.
 
 `Code`  
@@ -214,10 +214,17 @@ ___(持续更新中...)___
 |:-:|:-:|:-:|
 
 ---
-**`IRNet`**  
+**`IRNet`**  **`MSRA work`**
+`Blog`  
+- [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
 
-`Paper`
+`Paper`  
 - [ ] Guo J, Zhan Z, Gao Y, et al. [Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation](https://arxiv.org/pdf/1905.08205.pdf)[C]. ACL 2019.
+- [ ] Dong Z, Sun S, Liu H, et al. [Data-Anonymous Encoding for Text-to-SQL Generation](https://www.aclweb.org/anthology/D19-1543.pdf)[C] EMNLP-IJCNLP 2019.
+- [ ] Liu H, Fang L, Liu Q, et al. [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP-IJCNLP 2019.
+- [ ] Liu Q, Chen B, Lou J G, et al. [FANDA: A Novel Approach to Perform Follow-up Query Analysis](https://arxiv.org/pdf/1901.08259.pdf)[C]. AAAI 2019.
+- [ ] Liu Q, Chen B, Liu H, et al. [A Split-and-Recombine Approach for Follow-up Query Analysis](https://www.aclweb.org/anthology/D19-1535.pdf)[C]. EMNLP-IJCNLP 2019.
+
   
 `Code`
 - [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
