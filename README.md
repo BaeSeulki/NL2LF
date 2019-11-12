@@ -180,7 +180,7 @@ ___(持续更新中...)___
 - [https://github.com/sunlab-osu/MISP](https://github.com/sunlab-osu/MISP)
 
 ----
-#### **`2. Spider:`** 
+#### **`2. Spider:`**  
 
 **`GNN Encoding Seq2Seq`**  
 
@@ -217,7 +217,7 @@ ___(持续更新中...)___
 |:-:|:-:|:-:|
 
 ---
-**`IRNet`**  **`MSRA work`**
+**`IRNet`**  **`MSRA work`**  
 `Blog`  
 - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
 
@@ -244,7 +244,7 @@ ___(持续更新中...)___
 **`EditSQL`**  
 
 `Paper`
-- [ ] Zhang R, Yu T, Er H Y, et al. [Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions](https://arxiv.org/pdf/1909.00786.pdf)[C]. EMNLP 2019.
+- [ ] Zhang R, Yu T, Er H Y, et al. [Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions](https://arxiv.org/pdf/1909.00786.pdf)[C]. EMNLP-IJCNLP 2019.
 
 `Code`
 - [https://github.com/ryanzhumich/editsql](https://github.com/ryanzhumich/editsql)
@@ -264,7 +264,7 @@ ___(持续更新中...)___
 - [ ] Dongjun Lee. [Clause-Wise and Recursive Decoding for Complex and Cross-Domain Text-to-SQL Generation](https://arxiv.org/pdf/1904.08835.pdf)[C]. EMNLP 2019.
 - [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
 
-`Code`
+`Code`  
 - [https://github.com/taoyds/syntaxSQL](https://github.com/taoyds/syntaxSQL)
 
 `Score`  
@@ -280,11 +280,11 @@ ___(持续更新中...)___
 #### 三、相关资源扩展 (extend resources)
 ##### 1. SQL2Seq  
 
-`Paper`
+`Paper`  
 - [ ] Xu K, Wu L, Wang Z, et al. [Graph2seq: Graph to sequence learning with attention-based neural networks](https://arxiv.org/pdf/1804.00823.pdf).2018. 
 - [ ] Xu K, Wu L, Wang Z, et al. [SQL-to-text generation with graph-to-sequence model](https://arxiv.org/pdf/1809.05255.pdf)[C]. EMNLP 2018.
 
-`Code`
+`Code`  
 - [https://github.com/IBM/SQL-to-Text](https://github.com/IBM/SQL-to-Text)
 - [https://github.com/IBM/Graph2Seq](https://github.com/IBM/Graph2Seq)
 - [https://github.com/RandolphVI/Graph2Seq](https://github.com/RandolphVI/Graph2Seq)  
@@ -294,8 +294,21 @@ ___(持续更新中...)___
 
 ##### 3. 图神经网络（GNN)  
 
-`Blog`
+`Blog`  
 - [从图(Graph)到图卷积(Graph Convolution)：漫谈图神经网络模型](https://www.cnblogs.com/SivilTaram/p/graph_neural_network_1.html)
 
+`Paper`  
+- [https://github.com/thunlp/GNNPapers](https://github.com/thunlp/GNNPapers)
+- [https://github.com/IndexFziQ/GNN4NLP-Papers](https://github.com/IndexFziQ/GNN4NLP-Papers)
+- [https://github.com/nnzhan/Awesome-Graph-Neural-Networks](https://github.com/nnzhan/Awesome-Graph-Neural-Networks)
+- [https://github.com/naganandy/graph-based-deep-learning-literature](https://github.com/naganandy/graph-based-deep-learning-literature)
+- [https://github.com/svjan5/GNNs-for-NLP](https://github.com/svjan5/GNNs-for-NLP)
+
+`Code`  
+- [https://github.com/rusty1s/pytorch_geometric](https://github.com/rusty1s/pytorch_geometric)
+- [https://github.com/dmlc/dgl](https://github.com/dmlc/dgl)
+- [https://github.com/tkipf/pygcn](https://github.com/tkipf/pygcn)
+- [https://github.com/chingyaoc/ggnn.pytorch](https://github.com/chingyaoc/ggnn.pytorch)
+- [https://github.com/bdqnghi/ggnn.tensorflow](https://github.com/bdqnghi/ggnn.tensorflow)
 
 
