@@ -69,7 +69,9 @@ ___(持续更新中...)___
 
 ---
 - **Chinese Spider**
-  > 中文版Spider，数据待发布
+  > 中文版Spider  
+  + `Home` [https://taolusi.github.io/CSpider-explorer/](https://taolusi.github.io/CSpider-explorer/)
+  + `GitHub` [https://github.com/taolusi/chisp](https://github.com/taolusi/chisp)
   + `Paper` [A Pilot Study for Chinese SQL Semantic Parsing](https://frcchang.github.io/pub/emnlp2019.2.pdf), _Qingkai Min, Yuefeng Shi and Yue Zhang_, EMNLP-IJCNLP 2019.
 
 ---
