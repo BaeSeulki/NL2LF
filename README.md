@@ -10,8 +10,8 @@ ___(持续更新中...)___
 &nbsp;&nbsp;&nbsp;&nbsp;[1. WikiSQL](#1-wikisql)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2. Spider](#2-spider)  
 [三、相关资源扩展 extend-resources](#三相关资源扩展-extend-resources)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1. SQL2Seq](#1-sql2seq)  
-&nbsp;&nbsp;&nbsp;&nbsp;[2. 语义解析 Semantic Parsing](#2-语义解析-semantic-parsing)  
+&nbsp;&nbsp;&nbsp;&nbsp;[1. RelatedWorks](#1-relatedworks)  
+&nbsp;&nbsp;&nbsp;&nbsp;[2. SQL2Seq](#1-sql2seq)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3. 图神经网络 GNN](#3-图神经网络gnn)  
 
 
@@ -42,10 +42,12 @@ ___(持续更新中...)___
   > Spider数据集特点:
   > 1. Complex, Cross-domain and Zero-shot 
   > 2. 多表多列查询, 复杂子查询;
-  > 3. 聚合操作('MAX', 'MIN', 'COUNT', 'SUM', 'AVG'); 
-  > 4. 条件连接('AND','OR'); 
-  > 5. 条件比较('=', '>', '<', '!=')
-  > 6. 条件操作('JOIN', GROUP BY', 'ORDER BY', 'HAVING', 'LIMIT', 'Intersect', 'Union', 'Except')
+  > 3. 聚合操作('MAX', 'MIN', 'COUNT', 'SUM', 'AVG','GROUP', 'HAVING', 'LIMIT'); 
+  > 4. join连接：('join', 'on', 'as')
+  > 5. where连接：('AND','OR'); 
+  > 6. where操作：('not', 'between', '=', '>', '<', '>=', '<=', '!=', 'in', 'like', 'is', 'exists')
+  > 7. 排序操作：('order by', 'desc', 'asc')
+  > 8. sql连接：('Intersect', 'Union', 'Except')
   + `Home` [https://yale-lily.github.io/spider](https://yale-lily.github.io/spider)
   + `GitHub` [https://github.com/taoyds/spider](https://github.com/taoyds/spider)
   + `Paper` [Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task](https://arxiv.org/pdf/1809.08887.pdf) _Yu T, Zhang R, Yang K, et al._ , EMNLP 2018.
@@ -62,7 +64,7 @@ ___(持续更新中...)___
 ---
 - **CoSQL**
   > CoSQL数据集特点: 
-  > 1. Cross-domain Conversational, the Dilaogue version of the Spider and SParC tasks.
+  > 1. Cross-domain Conversational, the Dilaogue version of the Spider and SParC tasks.  
   >    继承Spider特点的多轮对话任务，涉及意图澄清。
   + `Home` [https://yale-lily.github.io/cosql](https://yale-lily.github.io/cosql)
   + `Paper` [CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases](https://arxiv.org/pdf/1909.05378.pdf), _Yu T, Zhang R, Er H Y, et al._, EMNLP-IJCNLP 2019. 
@@ -104,10 +106,12 @@ ___(持续更新中...)___
 #### 二、主要论文方法及代码实现（Papers&Code）
 > 论文主要以WikiSQL和Spider为评测数据，相应排行榜详见任务主页。  
 > 下面主要整理具有代表性的方法，持续更新补充...  
-> 注: score表示 | model | Dev execution accuracy |  Test execution accuracy  |  
+> 注: 
+> score表示 | model | Dev accuracy |  Test accuracy  |，WikiSQL表示执行准确率，Spider表示逻辑准确率，且不包括值预测。
 
 #### **`1. WikiSQL:`** 
-**`Weakly Supervised`** 采用弱监督方法，即不使用sql的逻辑形式作为监督信号  
+**`Weakly Supervised`**  
+> 采用弱监督方法，即不使用sql的逻辑形式作为监督信号。 
 
 `Paper`
 - [ ] Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf)[C]. EMNLP-IJCNLP 2019.  
@@ -128,6 +132,7 @@ ___(持续更新中...)___
 
 ---
 **`ExecutionGuided`**  
+> Execution Guided 可以在解码阶段通过执行错误对生成sql的项进行修正,从而过滤了一些不符合实际的sql语句。主要分为三类执行错误：1）句法解析错误，即生成的sql语法错误。2）执行失败。常见的run-time error, 例如SUM( ) 和比较string类型的数据；3）假设执行结果不为空，则空查询的条件错误。例如条件值实际并不存在于预测的列中, 因此会去 Beam Search 实际包含条件值的列。
 
 `Paper`  
 - [ ]  Wang C, Huang P S, Polozov A, et al. [Robust Text-to-SQL Generation with Execution-Guided Decoding](https://arxiv.org/pdf/1807.03100.pdf)[J]. 2018.  
@@ -150,6 +155,20 @@ ___(持续更新中...)___
 
 ---
 **`SQLNet Framework`**  
+> 设计了一种满足SQL语法的框架, 在这样的语法框架内，只需要预测并填充相应的槽位。
+> 语法框架为：
+> ```
+> SELECT $AGG $COLUMN
+> WHERE $COLUMN $OP $VALUE
+> (AND $COLUMN $OP $VALUE)*
+> ```
+> 在这基础上去完成不同的联合任务的分类预测：
+> 1) select-column, 选择的列
+> 2) select-aggregation， 聚合操作类型
+> 3) where-number， where条件语句的数量
+> 4) where-column， where条件中的列
+> 5) where-operator， where条件操作类型（'<','=','>'）
+> 6) where-value， where条件值
 
 `Paper`  
 - [ ]  Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
@@ -171,6 +190,7 @@ ___(持续更新中...)___
 
 ---
 **`Model Interactive`**  
+> 基于用户交互的语义解析，更偏向于落地实践。在生成sql后，通过自然语句生成来进一步要求用户进行意图澄清，从而对sql进行修正。
 
 `Blog` 
 - [Facebook提出全新交互式语义分析框架，自然语言生成SQL语句准确率提升10%](https://mp.weixin.qq.com/s/B3Rw-Rqy8b4-HtWPBtEI_w)  
@@ -185,6 +205,10 @@ ___(持续更新中...)___
 #### **`2. Spider:`**  
 
 **`GNN Encoding Seq2Seq`**  
+> 利用多表关联信息来建立一个表名、列名为节点，表内、表间关系为边的图。
+> 通过GNN方法计算每一个节点(table item)的隐藏状态。
+> 在seq2seq模型的encoding阶段，每个query word 向量对每个 table item隐藏向量进行attention计算， 并将attention权重作为每个query word的图表示。
+> 在decoding阶段，结合语法规则，如果输出应为table item,则将输出向量与所有table item隐藏向量进行全连接打分，计算其关联程度。
 
 `Paper`
 - [ ] Krishnamurthy J, Dasigi P, Gardner M. [Neural semantic parsing with type constraints for semi-structured tables](https://www.aclweb.org/anthology/D17-1160.pdf)[C]. EMNLP 2017.
@@ -280,7 +304,11 @@ ___(持续更新中...)___
 
 ---
 #### 三、相关资源扩展 (extend resources)
-##### 1. SQL2Seq  
+##### 1. RelatedWorks  
+`Paper`
+- [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
+
+##### 2. SQL2Seq  
 
 `Paper`  
 - [ ] Xu K, Wu L, Wang Z, et al. [Graph2seq: Graph to sequence learning with attention-based neural networks](https://arxiv.org/pdf/1804.00823.pdf).2018. 
@@ -289,10 +317,7 @@ ___(持续更新中...)___
 `Code`  
 - [https://github.com/IBM/SQL-to-Text](https://github.com/IBM/SQL-to-Text)
 - [https://github.com/IBM/Graph2Seq](https://github.com/IBM/Graph2Seq)
-- [https://github.com/RandolphVI/Graph2Seq](https://github.com/RandolphVI/Graph2Seq)  
-
-
-##### 2. 语义解析 (Semantic Parsing)  
+- [https://github.com/RandolphVI/Graph2Seq](https://github.com/RandolphVI/Graph2Seq)   
 
 ##### 3. 图神经网络（GNN)  
 
