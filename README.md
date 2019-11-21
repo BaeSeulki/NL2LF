@@ -305,6 +305,10 @@ ___(持续更新中...)___
 ---
 #### 三、相关资源扩展 (extend resources)
 ##### 1. RelatedWorks  
+
+`Blog`
+- [ ] [NL2SQL概述：一文了解NL2SQ](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
+
 `Paper`
 - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
 
