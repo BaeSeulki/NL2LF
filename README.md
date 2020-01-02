@@ -233,14 +233,17 @@ ___(持续更新中...)___
 **`RATSQL`**  
 
 `Paper`
-- [ ] Anonymous [RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://openreview.net/pdf?id=H1egcgHtvB)[C].  
-  [Under review on ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB).  
+- [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C].  
+  [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). 
+  [review on ACL 2020]().
 
 
 `Score`  
 
-| RAT-SQL  |60.6|53.7|
+| RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
 |:-:|:-:|:-:|
+| RASQL + BERT | 60.8 | 55.7 |
+| RAT-SQL  |60.6|53.7|
 
 ---
 **`IRNet`**  **`MSRA work`**  
@@ -307,7 +310,8 @@ ___(持续更新中...)___
 ##### 1. RelatedWorks  
 
 `Blog`
-- [ ] [NL2SQL概述：一文了解NL2SQ](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
+- [ ] [NL2SQL概述：一文了解NL2SQL](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
+- [ ] [哈工大SCIR: 一文了解Text-to-SQL](https://mp.weixin.qq.com/s/ucFtWopoErtUCYDTLv2kFg)
 
 `Paper`
 - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
