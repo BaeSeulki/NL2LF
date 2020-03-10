@@ -103,6 +103,15 @@ ___(持续更新中...)___
     5. [第五名方案_top5.pdf](PPT/top5.pdf)
     6. 第六名代码实现 [https://github.com/eguilg/nl2sql](https://github.com/eguilg/nl2sql)
 
+---
+- **DuSQL** 
+  > 百度2020语言与智能技术竞赛：语义解析任务，大规模开放领域的复杂中文Text-to-SQL数据集
+  > 数据特点：
+  > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
+  > 2. 200个Database来自百科infobox、百科表格数据、以及互联网上存在的表格数据。每个Database包含若干张表格（2-11张，平均4.1张），人工构建了表之间的链接操作（即foreign key）。为了验证解析算法Database无关性及question无关性，在训练集合和测试集合的Database无交叉。
+  + `Home` [https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true](https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true)    
+  **比赛时间：2020/03/10 - 2020/05/20**
+
 #### 二、主要论文方法及代码实现（Papers&Code）
 > 论文主要以WikiSQL和Spider为评测数据，相应排行榜详见任务主页。  
 > 下面主要整理具有代表性的方法，持续更新补充...  
