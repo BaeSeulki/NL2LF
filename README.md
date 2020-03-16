@@ -109,6 +109,36 @@ ___(持续更新中...)___
   > 数据特点：
   > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
   > 2. 200个Database来自百科infobox、百科表格数据、以及互联网上存在的表格数据。每个Database包含若干张表格（2-11张，平均4.1张），人工构建了表之间的链接操作（即foreign key）。为了验证解析算法Database无关性及question无关性，在训练集合和测试集合的Database无交叉。
+  >  从发布的样例集看，相比较spider，不含有join操作。因此主要是复杂的单表查询，涉及groupby，order， limit 以及集合交并差操作。
+  ``` shell
+  # 关键词和嵌套规则
+  select: [(agg_id, val_unit), (agg_id, val_unit), ...]
+  from: {'table_units': [table_unit, table_unit, ...], 'conds': condition}
+  where: condition
+  groupBy: [col_unit, ...]
+  orderBy: asc/desc, [(agg_id, val_unit), ...]
+  having: condition
+  limit: None/number
+  intersect: None/sql
+  except: None/sql 
+  union: None/sql
+  ```
+  ```shell
+  # 连接单元
+  val: number(float)/string(str)/sql(dict)
+  col_unit: (agg_id, col_id)
+  val_unit: (calc_op, col_unit1, col_unit2)
+  table_type: 'table_unit'/'sql'
+  table_unit: (table_type, table_id/sql)
+  cond_unit: (agg_id, cond_op, val_unit, val1, val2)
+  condition: [cond_unit1, 'and'/'or', cond_unit2, ...]
+  ```
+  ```shell
+  # op操作符
+  agg_id: (none, max, min, count, sum, avg)
+  calc_op: (none, -, +, \*, /)
+  cond_op: (not_in, between, =, >, <, >=, <=, !=, in, like)
+  ```
   + `Home` [https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true](https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true)    
   **比赛时间：2020/03/10 - 2020/05/20**
 
