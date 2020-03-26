@@ -154,20 +154,26 @@ ___(持续更新中...)___
 
 `Paper`
 - [ ] Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf)[C]. EMNLP-IJCNLP 2019.  
+- [ ] Wang B, Titov I, Lapata M. [Learning Semantic Parsers from Denotations with Latent Structured Alignments and Abstract Programs](https://arxiv.org/pdf/1909.04165.pdf). 2019.
 - [ ] Agarwal R, Liang C, Schuurmans D, et al. [Learning to Generalize from Sparse and Underspecified Rewards](https://arxiv.org/pdf/1902.07198.pdf). 2019.  
 - [ ] Liang C, Norouzi M, Berant J, et al. [Memory augmented policy optimization for program synthesis and semantic parsing](https://papers.nips.cc/paper/8204-memory-augmented-policy-optimization-for-program-synthesis-and-semantic-parsing.pdf)[C].NeurIPS, 2018: 9994-10006.
+- [ ] Guo T, Gao H. [Using Database Rule for Weak Supervised Text-to-SQL Generation](https://arxiv.org/pdf/1907.00620.pdf)[J]. 2019.
 
 
 `Code` 
-- [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em)  
-- [https://github.com/google-research/google-research/tree/master/meta_reward_learning](https://github.com/google-research/google-research/tree/master/meta_reward_learning)
+- Hard-EM [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em)  
+- LatentAlignment [https://github.com/berlino/weaksp_em19](https://github.com/berlino/weaksp_em19)
+- MeRL / MAPO [https://github.com/google-research/google-research/tree/master/meta_reward_learning](https://github.com/google-research/google-research/tree/master/meta_reward_learning)
+- Rule-SQL [https://github.com/guotong1988/Rule-SQL](https://github.com/guotong1988/Rule-SQL)
 
 `Score`  
 
 |Hard-EM|84.4 |  83.9  |
 |-|-|-|
+|LatentAlignment| 79.4 | 79.3 |
 |MeRL | 74.9 | 74.8 |
 |MAPO | 72.2 | 72.1 |
+|Rule-SQL| 61.1 | 61.0 |
 
 ---
 **`ExecutionGuided`**  
@@ -214,6 +220,8 @@ ___(持续更新中...)___
 - [ ]  Hwang W, Yim J, Park S, et al. [A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization](https://arxiv.org/pdf/1902.01069.pdf)[J]. 2019.  
 - [ ]  He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019.
 - [ ]  Tong Guo, Huilin Gao. [Content Enhanced BERT-based Text-to-SQL Generation ](https://arxiv.org/pdf/1910.07179.pdf).2019.
+- [ ]  Qin Lyu, Kaushik Chakrabarti, Shobhit Hathi, Souvik Kundu,
+Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.microsoft.com/en-us/research/uploads/prod/2020/03/HydraNet_20200311-5e69612887fcb.pdf). 2020
 
 `Code`  
 - [https://github.com/naver/sqlova](https://github.com/naver/sqlova)  
@@ -222,8 +230,14 @@ ___(持续更新中...)___
 
 `Score`  
 
-| BERT-XSQL-Attention + EG |92.3|91.8|
+| RoBERTa-Large-HydraNet + EG |92.4|92.2|
 |-|-|-|
+| BERT-Large-HydraNet + EG |92.2|91.8|
+| RoBERTa-Large-HydraNet |89.1|89.2|
+| BERT-Large-HydraNet |88.9 | 88.6 |
+| BERT-XSQL-Attention + EG |92.3|91.8|
+| (Tong) BERT-base-TableContent-used + EG| 91.1 | 90.1 |
+| (Tong) BERT-base-TableContent-used| 90.3 | 89.2 |
 | BERT-XSQL-Attention | 89.5 | 88.7 |
 | BERT-SQLova-LSTM|87.2 |  86.2  |
 |BERT-SQLova-LSTM + EG | 90.2 | 89.6 |
