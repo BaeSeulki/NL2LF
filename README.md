@@ -212,11 +212,13 @@ ___(持续更新中...)___
 `Paper`  
 - [ ]  Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
 - [ ]  Hwang W, Yim J, Park S, et al. [A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization](https://arxiv.org/pdf/1902.01069.pdf)[J]. 2019.  
-- [ ] He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019.
+- [ ]  He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019.
+- [ ]  Tong Guo, Huilin Gao. [Content Enhanced BERT-based Text-to-SQL Generation ](https://arxiv.org/pdf/1910.07179.pdf).2019.
 
 `Code`  
 - [https://github.com/naver/sqlova](https://github.com/naver/sqlova)  
 - [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
+- [https://github.com/guotong1988/NL2SQL-BERT](https://github.com/guotong1988/NL2SQL-BERT)
 
 `Score`  
 
