@@ -109,7 +109,8 @@ ___(持续更新中...)___
   > 数据特点：
   > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
   > 2. 200个Database来自百科infobox、百科表格数据、以及互联网上存在的表格数据。每个Database包含若干张表格（2-11张，平均4.1张），人工构建了表之间的链接操作（即foreign key）。为了验证解析算法Database无关性及question无关性，在训练集合和测试集合的Database无交叉。
-  >  从发布的样例集看，相比较spider，不含有join操作。因此主要是复杂的单表查询，涉及groupby，order， limit 以及集合交并差操作。
+  > 3. 包含复杂的多表join查询和嵌套查询，复杂度和spider类似。评价方法关注每一个组件的精准匹配度，并消除顺序影响。因此对val的准确度要求更高。具体的sql嵌套结构单元分解如下：
+
   ``` shell
   # 关键词和嵌套规则
   select: [(agg_id, val_unit), (agg_id, val_unit), ...]
