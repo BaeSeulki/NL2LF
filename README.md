@@ -141,6 +141,7 @@ ___(持续更新中...)___
   cond_op: (not_in, between, =, >, <, >=, <=, !=, in, like)
   ```
   + `Home` [https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true](https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true)    
+  + `GitHub` [https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline](https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline)    
   **比赛时间：2020/03/10 - 2020/05/20**
 
 #### 二、主要论文方法及代码实现（Papers&Code）
@@ -298,8 +299,9 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 
 | RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
 |:-:|:-:|:-:|
-| RASQL + BERT | 60.8 | 55.7 |
-| RAT-SQL  |60.6|53.7|
+| RATSQL v2 (DB content used)| 62.7| 57.2|
+| RATSQL + BERT | 60.8 | 55.7 |
+| RATSQL  |60.6|53.7|
 
 ---
 **`IRNet`**  **`MSRA work`**  
@@ -315,12 +317,14 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 
   
 `Code`
+- [https://github.com/microsoft/IRNet](https://github.com/microsoft/IRNet)
 - [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
 
 `Score`  
 
-| IRNet-v2 + BERT  |63.9|55.0|
+| IRNet++ + XLNet (DB content used) |65.5|60.1|
 |:-:|:-:|:-:|
+| IRNet-v2 + BERT  |63.9|55.0|
 | IRNet + BERT-Base | 61.9 | 54.7 |
 | IRNet-v2 | 55.4 | 48.5 |
 | IRNet| 53.2 | 46.7 | 
