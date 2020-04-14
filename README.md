@@ -102,9 +102,11 @@ ___(持续更新中...)___
     4. [第四名方案_top4.pdf](PPT/top4.pdf)
     5. [第五名方案_top5.pdf](PPT/top5.pdf)
     6. 第六名代码实现 [https://github.com/eguilg/nl2sql](https://github.com/eguilg/nl2sql)
+  + `Paper`   
+    1. Zhang X, Yin F, Ma G, et al. [M-SQL: Multi-Task Representation Learning for Single-Table Text2sql Generation](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9020099)[J]. IEEE Access, 2020, 8: 43156-43167. 🔥
 
 ---
-- **DuSQL** 
+- **DuSQL**  🔥🔥🔥
   > 百度2020语言与智能技术竞赛：语义解析任务，大规模开放领域的复杂中文Text-to-SQL数据集
   > 数据特点：
   > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
@@ -163,7 +165,7 @@ ___(持续更新中...)___
 
 
 `Code` 
-- Hard-EM [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em)  
+- Hard-EM [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em) 🔥 
 - LatentAlignment [https://github.com/berlino/weaksp_em19](https://github.com/berlino/weaksp_em19)
 - MeRL / MAPO [https://github.com/google-research/google-research/tree/master/meta_reward_learning](https://github.com/google-research/google-research/tree/master/meta_reward_learning)
 - Rule-SQL [https://github.com/guotong1988/Rule-SQL](https://github.com/guotong1988/Rule-SQL)
@@ -220,10 +222,10 @@ ___(持续更新中...)___
 `Paper`  
 - [ ]  Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
 - [ ]  Hwang W, Yim J, Park S, et al. [A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization](https://arxiv.org/pdf/1902.01069.pdf)[J]. 2019.  
-- [ ]  He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019.
+- [ ]  He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019. 🔥
 - [ ]  Tong Guo, Huilin Gao. [Content Enhanced BERT-based Text-to-SQL Generation ](https://arxiv.org/pdf/1910.07179.pdf).2019.
 - [ ]  Qin Lyu, Kaushik Chakrabarti, Shobhit Hathi, Souvik Kundu,
-Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.microsoft.com/en-us/research/uploads/prod/2020/03/HydraNet_20200311-5e69612887fcb.pdf). 2020
+Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.microsoft.com/en-us/research/uploads/prod/2020/03/HydraNet_20200311-5e69612887fcb.pdf). 2020 🔥🔥
 
 `Code`  
 - [https://github.com/naver/sqlova](https://github.com/naver/sqlova)  
@@ -271,7 +273,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [ ] Krishnamurthy J, Dasigi P, Gardner M. [Neural semantic parsing with type constraints for semi-structured tables](https://www.aclweb.org/anthology/D17-1160.pdf)[C]. EMNLP 2017.
 - [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
 - [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
-- [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019.
+- [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019. 🔥
 - [ ] Shaw P, Massey P, Chen A, et al. [Generating Logical Forms from Graph Representations of Text and Entities](https://arxiv.org/pdf/1905.08407.pdf)[C]. ACL 2019.
 
 `Code`  
@@ -287,7 +289,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | GNN w/edge vectors| 32.1 | - |
 
 ---
-**`RATSQL`**  
+**`RATSQL`**  🔥
 
 `Paper`
 - [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C].  
@@ -304,7 +306,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | RATSQL  |60.6|53.7|
 
 ---
-**`IRNet`**  **`MSRA work`**  
+**`IRNet`**  **`MSRA work`**  🔥🔥  
 `Blog`  
 - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
 
@@ -330,7 +332,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | IRNet| 53.2 | 46.7 | 
 
 ---
-**`EditSQL`**  
+**`EditSQL`**  🔥
 
 `Paper`
 - [ ] Zhang R, Yu T, Er H Y, et al. [Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions](https://arxiv.org/pdf/1909.00786.pdf)[C]. EMNLP-IJCNLP 2019.
@@ -372,6 +374,8 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 `Blog`
 - [ ] [NL2SQL概述：一文了解NL2SQL](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
 - [ ] [哈工大SCIR: 一文了解Text-to-SQL](https://mp.weixin.qq.com/s/ucFtWopoErtUCYDTLv2kFg)
+- [ ] [表格问答1：简介-朴素人工智能](https://mp.weixin.qq.com/s/iIoy9cIitlaH1p_msrbYoQ)
+- [ ] [表格问答2：模型-朴素人工智能](https://mp.weixin.qq.com/s/aXXhR4u-AvJY-h8595RJew)
 
 `Paper`
 - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
