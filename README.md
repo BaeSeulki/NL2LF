@@ -306,9 +306,10 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | RATSQL  |60.6|53.7|
 
 ---
-**`IRNet`**  **`MSRA work`**  🔥🔥  
-`Blog`  
+**`IRNet`**  |  **`MSRA work`**  🔥🔥  
+`Blog & Video`  
 - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
+- [Use Ideas in Excel to get Immediate answers with ONE Click]( https://www.youtube.com/watch?v=bey_1SUTB4k) 🆕
 
 `Paper`  
 - [ ] Guo J, Zhan Z, Gao Y, et al. [Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation](https://arxiv.org/pdf/1905.08205.pdf)[C]. ACL 2019.
@@ -374,8 +375,9 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 `Blog`
 - [ ] [NL2SQL概述：一文了解NL2SQL](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
 - [ ] [哈工大SCIR: 一文了解Text-to-SQL](https://mp.weixin.qq.com/s/ucFtWopoErtUCYDTLv2kFg)
-- [ ] [表格问答1：简介-朴素人工智能](https://mp.weixin.qq.com/s/iIoy9cIitlaH1p_msrbYoQ)
-- [ ] [表格问答2：模型-朴素人工智能](https://mp.weixin.qq.com/s/aXXhR4u-AvJY-h8595RJew)
+- [ ] [表格问答1：简介-朴素人工智能](https://mp.weixin.qq.com/s/iIoy9cIitlaH1p_msrbYoQ) 
+- [ ] [表格问答2：模型](https://mp.weixin.qq.com/s/aXXhR4u-AvJY-h8595RJew) 
+- [ ] [表格问答完结篇：落地应用](https://mp.weixin.qq.com/s/0uEXOTfbEq86oIVnMrogRA) 🆕
 
 `Paper`
 - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
