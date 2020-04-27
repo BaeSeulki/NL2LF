@@ -106,7 +106,7 @@ ___(持续更新中...)___
     1. Zhang X, Yin F, Ma G, et al. [M-SQL: Multi-Task Representation Learning for Single-Table Text2sql Generation](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9020099)[J]. IEEE Access, 2020, 8: 43156-43167. 🔥
 
 ---
-- **DuSQL**  🔥🔥🔥
+- **DuSQL**  🔥🔥🔥 **比赛时间：2020/03/10 - 2020/05/20**
   > 百度2020语言与智能技术竞赛：语义解析任务，大规模开放领域的复杂中文Text-to-SQL数据集
   > 数据特点：
   > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
@@ -144,7 +144,12 @@ ___(持续更新中...)___
   ```
   + `Home` [https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true](https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true)    
   + `GitHub` [https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline](https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline)    
-  **比赛时间：2020/03/10 - 2020/05/20**
+  +  `Blog`  
+     1. [“语义解析”任务FAQ](https://mp.weixin.qq.com/s/EXS1dgGzAyttAeHwWjrt2A)   🆕
+     2. [语义解析 (Text-to-SQL) 技术研究及应用 上篇](https://mp.weixin.qq.com/s/FtsA4O_VTUqhhYS3Gq3G8Q)  🆕
+     3. [语义解析 (Text-to-SQL) 技术研究及应用 下篇](https://mp.weixin.qq.com/s/5lTLW5OOuRMo2zjbzMxr_Q)  🆕
+     4. [UNIT结构化知识问答产品](https://ai.baidu.com/forum/topic/show/957042)  🆕
+
 
 #### 二、主要论文方法及代码实现（Papers&Code）
 > 论文主要以WikiSQL和Spider为评测数据，相应排行榜详见任务主页。  
@@ -377,7 +382,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [ ] [哈工大SCIR: 一文了解Text-to-SQL](https://mp.weixin.qq.com/s/ucFtWopoErtUCYDTLv2kFg)
 - [ ] [表格问答1：简介-朴素人工智能](https://mp.weixin.qq.com/s/iIoy9cIitlaH1p_msrbYoQ) 
 - [ ] [表格问答2：模型](https://mp.weixin.qq.com/s/aXXhR4u-AvJY-h8595RJew) 
-- [ ] [表格问答完结篇：落地应用](https://mp.weixin.qq.com/s/0uEXOTfbEq86oIVnMrogRA) 🆕
+- [ ] [表格问答完结篇：落地应用](https://mp.weixin.qq.com/s/0uEXOTfbEq86oIVnMrogRA)
 
 `Paper`
 - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
