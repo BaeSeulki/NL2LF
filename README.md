@@ -145,10 +145,10 @@ ___(持续更新中...)___
   + `Home` [https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true](https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true)    
   + `GitHub` [https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline](https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline)    
   +  `Blog`  
-     1. [“语义解析”任务FAQ](https://mp.weixin.qq.com/s/EXS1dgGzAyttAeHwWjrt2A)   🆕
-     2. [语义解析 (Text-to-SQL) 技术研究及应用 上篇](https://mp.weixin.qq.com/s/FtsA4O_VTUqhhYS3Gq3G8Q)  🆕
-     3. [语义解析 (Text-to-SQL) 技术研究及应用 下篇](https://mp.weixin.qq.com/s/5lTLW5OOuRMo2zjbzMxr_Q)  🆕
-     4. [UNIT结构化知识问答产品](https://ai.baidu.com/forum/topic/show/957042)  🆕
+     1. [“语义解析”任务FAQ](https://mp.weixin.qq.com/s/EXS1dgGzAyttAeHwWjrt2A)   
+     2. [语义解析 (Text-to-SQL) 技术研究及应用 上篇](https://mp.weixin.qq.com/s/FtsA4O_VTUqhhYS3Gq3G8Q)  
+     3. [语义解析 (Text-to-SQL) 技术研究及应用 下篇](https://mp.weixin.qq.com/s/5lTLW5OOuRMo2zjbzMxr_Q)  
+     4. [UNIT结构化知识问答产品](https://ai.baidu.com/forum/topic/show/957042)  
 
 
 #### 二、主要论文方法及代码实现（Papers&Code）
@@ -351,6 +351,18 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | EditSQL + BERT  |57.6|53.4|
 |:-:|:-:|:-:|
 | EditSQL | 36.4 | 32.9 |  
+
+----
+**`RYANSQL`**  🔥🔥 🆕
+
+`Paper`
+- [ ] Choi D H, Shin M C, Kim E G, et al. [RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases]([RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases](https://arxiv.org/pdf/2004.03125.pdf))[J]. 2020.
+
+`Score`  
+| RYANSQL v2 + BERT  | 70.6 | 60.6 |
+|:-:|:-:|:-:|
+| RYANSQL + BERT | 66.6 | 58.2 | 
+| RYANSQL  | 43.3 | - |
 
 ----
 **`SQLNet Framework`**  
