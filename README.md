@@ -1,5 +1,6 @@
 ## NL2LF 
-___(持续更新中...)___
+___(持续更新中...)___   **update log:** Recent Advances in SQL Query Generation: A Survey
+
 > The Resources for "Natural Language to Logical Form" Research;  
 > "自然语言转逻辑形式"研究资料收集: 
 > 本阶段主要以**NL2SQL**的研究为主, 主要包括评测公开数据集、相关论文和部分代码实现、相关博客或公众号文章。
@@ -397,6 +398,8 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [ ] [表格问答完结篇：落地应用](https://mp.weixin.qq.com/s/0uEXOTfbEq86oIVnMrogRA)
 
 `Paper`
+- [ ] Jovan, Martina, Frosina. [Recent Advances in SQL Query Generation: A Survey](https://arxiv.org/pdf/2005.07667.pdf)//Part of the 17th International Conference on Informatics and Information Technologies. Received best paper award. 2020.  🆕
+
 - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
 
 ##### 2. SQL2Seq  
