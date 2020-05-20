@@ -388,7 +388,10 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 `Pre-train`  🔥🔥🔥 🆕
 > A pretrained language model that jointly learns representations for NL sentences and
 (semi-)structured tables.
-- [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020.
+- [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020.  
+
+> Adapting a semantic parser trained on a single language.
+- [ ] Tom Sherborne, Yumo Xu, Mirella Lapata. [Bootstrapping a Crosslingual Semantic Parser](https://arxiv.org/abs/2004.02585).2020.
 
 `Blog`
 - [ ] [NL2SQL概述：一文了解NL2SQL](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
