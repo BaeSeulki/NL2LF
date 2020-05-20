@@ -1,7 +1,11 @@
 ## NL2LF 
-___(持续更新中...)___   **update log:** Recent Advances in SQL Query Generation: A Survey
+___(持续更新中...)___   
+**_recently update log:_**  
+_1. Recent Advances in SQL Query Generation: A Survey_  
+_2. ACL2020: RAT-SQL model_  
+_3. ACL2020: TABERT pre-trained language model_  
 
-> The Resources for "Natural Language to Logical Form" Research;  
+> The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
 > "自然语言转逻辑形式"研究资料收集: 
 > 本阶段主要以**NL2SQL**的研究为主, 主要包括评测公开数据集、相关论文和部分代码实现、相关博客或公众号文章。
 
@@ -295,27 +299,10 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | GNN w/edge vectors| 32.1 | - |
 
 ---
-**`RATSQL`**  🔥
-
-`Paper`
-- [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C].  
-  [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). 
-  [review on ACL 2020]().
-
-
-`Score`  
-
-| RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
-|:-:|:-:|:-:|
-| RATSQL v2 (DB content used)| 62.7| 57.2|
-| RATSQL + BERT | 60.8 | 55.7 |
-| RATSQL  |60.6|53.7|
-
----
-**`IRNet`**  |  **`MSRA work`**  🔥🔥  
+ **`Microsoft works`** | **`IRNet`** | **`RATSQL`**  🔥🔥🔥  
 `Blog & Video`  
 - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
-- [Use Ideas in Excel to get Immediate answers with ONE Click]( https://www.youtube.com/watch?v=bey_1SUTB4k) 🆕
+- [Use Ideas in Excel to get Immediate answers with ONE Click]( https://www.youtube.com/watch?v=bey_1SUTB4k)
 
 `Paper`  
 - [ ] Guo J, Zhan Z, Gao Y, et al. [Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation](https://arxiv.org/pdf/1905.08205.pdf)[C]. ACL 2019.
@@ -323,22 +310,31 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [ ] Liu H, Fang L, Liu Q, et al. [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP-IJCNLP 2019.
 - [ ] Liu Q, Chen B, Lou J G, et al. [FANDA: A Novel Approach to Perform Follow-up Query Analysis](https://arxiv.org/pdf/1901.08259.pdf)[C]. AAAI 2019.
 - [ ] Liu Q, Chen B, Liu H, et al. [A Split-and-Recombine Approach for Follow-up Query Analysis](https://www.aclweb.org/anthology/D19-1535.pdf)[C]. EMNLP-IJCNLP 2019.
+- [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C]. ACL 2020. 🆕
+  <!-- [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). -->
 
   
 `Code`
 - [https://github.com/microsoft/IRNet](https://github.com/microsoft/IRNet)
 - [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
+- [https://github.com/Microsoft/rat-sql](https://github.com/Microsoft/rat-sql)  not public
 
-`Score`  
+`Score`   🆕
 
-| IRNet++ + XLNet (DB content used) |65.5|60.1|
+| RATSQL v3 + BERT (DB content used) |69.7|65.6|
 |:-:|:-:|:-:|
+| RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
+| IRNet++ + XLNet (DB content used) |65.5|60.1|
+| RATSQL v2 (DB content used)| 62.7| 57.2|
+| RATSQL + BERT | 60.8 | 55.7 |
 | IRNet-v2 + BERT  |63.9|55.0|
 | IRNet + BERT-Base | 61.9 | 54.7 |
+| RATSQL  |60.6|53.7|
 | IRNet-v2 | 55.4 | 48.5 |
 | IRNet| 53.2 | 46.7 | 
 
----
+-------
+
 **`EditSQL`**  🔥
 
 `Paper`
@@ -354,7 +350,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | EditSQL | 36.4 | 32.9 |  
 
 ----
-**`RYANSQL`**  🔥🔥 🆕
+**`RYANSQL`**  🔥
 
 `Paper`
 - [ ] Choi D H, Shin M C, Kim E G, et al. [RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases]([RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases](https://arxiv.org/pdf/2004.03125.pdf))[J]. 2020.
@@ -389,6 +385,10 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 ---
 #### 三、相关资源扩展 (extend resources)
 ##### 1. RelatedWorks  
+`Pre-train`  🔥🔥🔥 🆕
+> A pretrained language model that jointly learns representations for NL sentences and
+(semi-)structured tables.
+- [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020.
 
 `Blog`
 - [ ] [NL2SQL概述：一文了解NL2SQL](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
