@@ -111,7 +111,7 @@ _3. ACL2020: TABERT pre-trained language model_
     1. Zhang X, Yin F, Ma G, et al. [M-SQL: Multi-Task Representation Learning for Single-Table Text2sql Generation](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9020099)[J]. IEEE Access, 2020, 8: 43156-43167. 🔥
 
 ---
-- **DuSQL**  🔥🔥🔥 **比赛时间：2020/03/10 - 2020/05/20**
+- **DuSQL**  🔥 **比赛时间：2020/03/10 - 2020/05/20**
   > 百度2020语言与智能技术竞赛：语义解析任务，大规模开放领域的复杂中文Text-to-SQL数据集
   > 数据特点：
   > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
@@ -235,7 +235,7 @@ _3. ACL2020: TABERT pre-trained language model_
 - [ ]  He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019. 🔥
 - [ ]  Tong Guo, Huilin Gao. [Content Enhanced BERT-based Text-to-SQL Generation ](https://arxiv.org/pdf/1910.07179.pdf).2019.
 - [ ]  Qin Lyu, Kaushik Chakrabarti, Shobhit Hathi, Souvik Kundu,
-Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.microsoft.com/en-us/research/uploads/prod/2020/03/HydraNet_20200311-5e69612887fcb.pdf). 2020 🔥🔥
+Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.microsoft.com/en-us/research/uploads/prod/2020/03/HydraNet_20200311-5e69612887fcb.pdf). 2020 🔥
 
 `Code`  
 - [https://github.com/naver/sqlova](https://github.com/naver/sqlova)  
@@ -256,6 +256,20 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 | BERT-SQLova-LSTM|87.2 |  86.2  |
 |BERT-SQLova-LSTM + EG | 90.2 | 89.6 |
 |GloVe-SQLNet-BiLSTM|69.8 |  68.0  |
+
+---
+**`Information Extraction Approach`**  🔥🔥
+> 信息抽取的方法: 采用统一的基于BERT的抽取模型来识别query提及的槽位类型，包括序列标注方法、关系抽取和基于文本匹配的链接方法。
+
+`Paper`
+- [ ] Ping An Life, AI Team. [IE-SQL: Text-to-SQL as Information Extraction](https://drive.google.com/file/d/1t3xEltqKpYJGYekAhQ5vYFen1ocHJ3sY/view) 2020
+
+`Score`  
+
+| BERT-IE-SQL + EG |92.6|92.5|
+|-|-|-|
+| BERT-IE-SQL |88.7|88.8|
+
 
 ---
 **`Model Interactive`**  
@@ -399,6 +413,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [ ] [表格问答1：简介-朴素人工智能](https://mp.weixin.qq.com/s/iIoy9cIitlaH1p_msrbYoQ) 
 - [ ] [表格问答2：模型](https://mp.weixin.qq.com/s/aXXhR4u-AvJY-h8595RJew) 
 - [ ] [表格问答完结篇：落地应用](https://mp.weixin.qq.com/s/0uEXOTfbEq86oIVnMrogRA)
+- [ ] [ACL2020表格预训练工作速览](https://mp.weixin.qq.com/s/AF-Wt5lKW2-oWBgdcCyWXA)
 
 `Paper`
 - [ ] Jovan, Martina, Frosina. [Recent Advances in SQL Query Generation: A Survey](https://arxiv.org/pdf/2005.07667.pdf)//Part of the 17th International Conference on Informatics and Information Technologies. Received best paper award. 2020.  🆕
@@ -417,9 +432,6 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [https://github.com/RandolphVI/Graph2Seq](https://github.com/RandolphVI/Graph2Seq)   
 
 ##### 3. 图神经网络（GNN)  
-
-`Blog`  
-- [从图(Graph)到图卷积(Graph Convolution)：漫谈图神经网络模型](https://www.cnblogs.com/SivilTaram/p/graph_neural_network_1.html)
 
 `Paper`  
 - [https://github.com/thunlp/GNNPapers](https://github.com/thunlp/GNNPapers)
