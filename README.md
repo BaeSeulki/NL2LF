@@ -1,9 +1,8 @@
 ## NL2LF 
 ___(持续更新中...)___   
 **_recently update log:_**  
-_1. Recent Advances in SQL Query Generation: A Survey_  
-_2. ACL2020: RAT-SQL model_  
-_3. ACL2020: TABERT pre-trained language model_  
+_1. GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing_  
+
 
 > The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
 > "自然语言转逻辑形式"研究资料收集: 
@@ -15,7 +14,7 @@ _3. ACL2020: TABERT pre-trained language model_
 &nbsp;&nbsp;&nbsp;&nbsp;[1. WikiSQL](#1-wikisql)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2. Spider](#2-spider)  
 [三、相关资源扩展 extend-resources](#三相关资源扩展-extend-resources)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1. RelatedWorks](#1-relatedworks)  
+&nbsp;&nbsp;&nbsp;&nbsp;[1. Related Works](#1-relatedworks)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2. SQL2Seq](#1-sql2seq)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3. 图神经网络 GNN](#3-图神经网络gnn)  
 
@@ -92,6 +91,7 @@ _3. ACL2020: TABERT pre-trained language model_
   > 5. 条件比较('=', '>', '<', '!=')
   + `Home` [https://tianchi.aliyun.com/competition/entrance/231716/information](https://tianchi.aliyun.com/competition/entrance/231716/information)
   + `GitHub` [https://github.com/ZhuiyiTechnology/nl2sql_baseline](https://github.com/ZhuiyiTechnology/nl2sql_baseline)
+  + `Paper` [TableQA: a Large-Scale Chinese Text-to-SQL Dataset for Table-Aware SQL Generation](https://arxiv.org/pdf/2006.06434.pdf)[J]. Sun N, Yang X, Liu Y. 2020.
   + `Blog` 
     1. [人工智能时代如何高效发掘数据库的价值？NL2SQL值得你关注](https://www.jiqizhixin.com/articles/2019-06-02-3)
     2. [让机器自动写SQL语言，首届中文NL2SQL挑战赛等你来战](https://mp.weixin.qq.com/s/wuC8O6DuxxtuFe8BO1ilZQ)
@@ -398,27 +398,36 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 
 ---
 #### 三、相关资源扩展 (extend resources)
-##### 1. RelatedWorks  
-`Pre-train`  🔥🔥🔥 🆕
-> A pretrained language model that jointly learns representations for NL sentences and
-(semi-)structured tables.
-- [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020.  
+##### 1. Related Works  
+##### 1.1 `Pre-training`  🔥🔥🔥 
+  >  An effective pre-training approach for table semantic parsing that learns a compositional inductive bias in the joint representations of textual and tabular data.
+  - [ ] Yu T, Wu C S, Lin X V, et al. [GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2009.13845)[J]. 2020. 🆕
 
-> Adapting a semantic parser trained on a single language.
-- [ ] Tom Sherborne, Yumo Xu, Mirella Lapata. [Bootstrapping a Crosslingual Semantic Parser](https://arxiv.org/abs/2004.02585).2020.
+  > A pretrained language model that jointly learns representations for NL sentences and (semi-)structured tables.
+  - [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020.  
 
-`Blog`
-- [ ] [NL2SQL概述：一文了解NL2SQL](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
-- [ ] [哈工大SCIR: 一文了解Text-to-SQL](https://mp.weixin.qq.com/s/ucFtWopoErtUCYDTLv2kFg)
-- [ ] [表格问答1：简介-朴素人工智能](https://mp.weixin.qq.com/s/iIoy9cIitlaH1p_msrbYoQ) 
-- [ ] [表格问答2：模型](https://mp.weixin.qq.com/s/aXXhR4u-AvJY-h8595RJew) 
-- [ ] [表格问答完结篇：落地应用](https://mp.weixin.qq.com/s/0uEXOTfbEq86oIVnMrogRA)
-- [ ] [ACL2020表格预训练工作速览](https://mp.weixin.qq.com/s/AF-Wt5lKW2-oWBgdcCyWXA)
+  > Adapting a semantic parser trained on a single language.
+  - [ ] Tom Sherborne, Yumo Xu, Mirella Lapata. [Bootstrapping a Crosslingual Semantic Parser](https://arxiv.org/abs/2004.02585).2020.
 
-`Paper`
-- [ ] Jovan, Martina, Frosina. [Recent Advances in SQL Query Generation: A Survey](https://arxiv.org/pdf/2005.07667.pdf)//Part of the 17th International Conference on Informatics and Information Technologies. Received best paper award. 2020.  🆕
+##### 1.2 `Systems`
+  - [ ] Zeng J, Lin X V, Xiong C, et al. [Photon: A Robust Cross-Domain Text-to-SQL System](https://arxiv.org/pdf/2007.15280.pdf)[J]. 2020.
+  - [ ] Brunner U, Stockinger K. [ValueNet: A Neural Text-to-SQL Architecture Incorporating Values](https://arxiv.org/pdf/2006.00888.pdf)[J]. 2020.
+  - [ ] Elgohary A, Hosseini S, Awadallah A H. [Speak to your Parser: Interactive Text-to-SQL with Natural Language Feedback](https://arxiv.org/pdf/2006.00888)[J]. 2020.
 
-- [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
+##### 1.3 `Surveys`
+  - [ ] Jovan, Martina, Frosina. [Recent Advances in SQL Query Generation: A Survey](https://arxiv.org/pdf/2005.07667.pdf)//Part of the 17th International Conference on Informatics and Information Technologies. Received best paper award. 2020.
+
+##### 1.4 `Blogs`
+  - [ ] [NL2SQL概述：一文了解NL2SQL](https://www.csuldw.com/2019/10/20/2019-10-20-nl2sql-introduction/)  
+  - [ ] [哈工大SCIR: 一文了解Text-to-SQL](https://mp.weixin.qq.com/s/ucFtWopoErtUCYDTLv2kFg)
+  - [ ] [表格问答1：简介-朴素人工智能](https://mp.weixin.qq.com/s/iIoy9cIitlaH1p_msrbYoQ) 
+  - [ ] [表格问答2：模型](https://mp.weixin.qq.com/s/aXXhR4u-AvJY-h8595RJew) 
+  - [ ] [表格问答完结篇：落地应用](https://mp.weixin.qq.com/s/0uEXOTfbEq86oIVnMrogRA)
+  - [ ] [ACL2020 表格预训练工作速览](https://mp.weixin.qq.com/s/AF-Wt5lKW2-oWBgdcCyWXA)
+
+##### 1.5 `Other Papers`
+  - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
+  - [ ] Chen S, San A, Liu X, et al. [A Tale of Two Linkings: Dynamically Gating between Schema Linking and Structural Linking for Text-to-SQL Parsing](https://arxiv.org/abs/2009.14809)[C]. COLING 2020.
 
 ##### 2. SQL2Seq  
 
