@@ -1,7 +1,11 @@
 ## NL2LF 
 ___(持续更新中...)___   
 **_recently update log:_**  
-_1. GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing_  
+_1. Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker_   
+_2. SLSQL: Re-examining the Role of Schema Linking in Text-to-SQL_
+_3. BRIDGE: Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
+_4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_
+_5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_
 
 
 > The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
@@ -160,7 +164,8 @@ _1. GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing_
 > 论文主要以WikiSQL和Spider为评测数据，相应排行榜详见任务主页。  
 > 下面主要整理具有代表性的方法，持续更新补充...  
 > 注: 
-> score表示 | model | Dev accuracy |  Test accuracy  |，WikiSQL表示执行准确率，Spider表示逻辑准确率，且不包括值预测。
+> Exe_score 表示 | model | Dev accuracy |  Test accuracy  |，表示执行准确率(Execution accuracy)  
+> Log_score 表示逻辑准确率(Logical accuracy)，且Spider中不包括值预测。
 
 #### **`1. WikiSQL:`** 
 **`Weakly Supervised`**  
@@ -180,7 +185,7 @@ _1. GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing_
 - MeRL / MAPO [https://github.com/google-research/google-research/tree/master/meta_reward_learning](https://github.com/google-research/google-research/tree/master/meta_reward_learning)
 - Rule-SQL [https://github.com/guotong1988/Rule-SQL](https://github.com/guotong1988/Rule-SQL)
 
-`Score`  
+`Exe_score`  
 
 |Hard-EM|84.4 |  83.9  |
 |-|-|-|
@@ -204,7 +209,7 @@ _1. GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing_
 - [https://github.com/microsoft/PointerSQL](https://github.com/microsoft/PointerSQL)  
 - [https://github.com/donglixp/coarse2fine](https://github.com/donglixp/coarse2fine)  
 
-`Score`  
+`Exe_score`  
 
 |Coarse2Fine + EG| 84.0 | 83.8 |
 |-|-|-|
@@ -242,7 +247,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
 - [https://github.com/guotong1988/NL2SQL-BERT](https://github.com/guotong1988/NL2SQL-BERT)
 
-`Score`  
+`Exe_score`  
 
 | RoBERTa-Large-HydraNet + EG |92.4|92.2|
 |-|-|-|
@@ -264,7 +269,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 `Paper`
 - [ ] Ping An Life, AI Team. [IE-SQL: Text-to-SQL as Information Extraction](https://drive.google.com/file/d/1t3xEltqKpYJGYekAhQ5vYFen1ocHJ3sY/view) 2020
 
-`Score`  
+`Exe_score`  
 
 | BERT-IE-SQL + EG |92.6|92.5|
 |-|-|-|
@@ -287,7 +292,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 ----
 #### **`2. Spider:`**  
 
-**`GNN Encoding Seq2Seq`**  
+**`GNN Encoding Seq2Seq`**  🔥
 > 利用多表关联信息来建立一个表名、列名为节点，表内、表间关系为边的图。
 > 通过GNN方法计算每一个节点(table item)的隐藏状态。
 > 在seq2seq模型的encoding阶段，每个query word 向量对每个 table item隐藏向量进行attention计算， 并将attention权重作为每个query word的图表示。
@@ -297,17 +302,20 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [ ] Krishnamurthy J, Dasigi P, Gardner M. [Neural semantic parsing with type constraints for semi-structured tables](https://www.aclweb.org/anthology/D17-1160.pdf)[C]. EMNLP 2017.
 - [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
 - [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
-- [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019. 🔥
+- [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019.
 - [ ] Shaw P, Massey P, Chen A, et al. [Generating Logical Forms from Graph Representations of Text and Entities](https://arxiv.org/pdf/1905.08407.pdf)[C]. ACL 2019.
+- [ ] Kelkar A, Relan R, Bhardwaj V, et al. [Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker](https://arxiv.org/pdf/2002.00557.pdf)[J]. arXiv preprint arXiv:2002.00557, 2020. 🆕
 
 `Code`  
 - [https://github.com/benbogin/spider-schema-gnn](https://github.com/benbogin/spider-schema-gnn)
 - [https://github.com/benbogin/spider-schema-gnn-global](https://github.com/benbogin/spider-schema-gnn-global)
+- [https://github.com/amolk/Bertrand-DR](https://github.com/amolk/Bertrand-DR) 🆕
 
-`Score`
+`Log_score`
 
-| BERTRAND + GNN | 57.9 | 54.6 |
+|ShadowGNN (DB content used)|64.8|
 |:-:|:-:|:-:|
+| GNN + Bertrand-DR | 57.9 | 54.6 |
 | Global-GNN  |52.7|47.4|
 | GNN | 40.7 | 39.4 |
 | GNN w/edge vectors| 32.1 | - |
@@ -324,7 +332,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [ ] Liu H, Fang L, Liu Q, et al. [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP-IJCNLP 2019.
 - [ ] Liu Q, Chen B, Lou J G, et al. [FANDA: A Novel Approach to Perform Follow-up Query Analysis](https://arxiv.org/pdf/1901.08259.pdf)[C]. AAAI 2019.
 - [ ] Liu Q, Chen B, Liu H, et al. [A Split-and-Recombine Approach for Follow-up Query Analysis](https://www.aclweb.org/anthology/D19-1535.pdf)[C]. EMNLP-IJCNLP 2019.
-- [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C]. ACL 2020. 🆕
+- [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C]. ACL 2020. 
   <!-- [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). -->
 
   
@@ -333,10 +341,11 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 - [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
 - [https://github.com/Microsoft/rat-sql](https://github.com/Microsoft/rat-sql)  not public
 
-`Score`   🆕
-
-| RATSQL v3 + BERT (DB content used) |69.7|65.6|
+`Log_score` 
+| RATSQL + GAP (DB content used) |71.8|69.7|
 |:-:|:-:|:-:|
+| RATSQL + GraPPa (DB content used) |73.4|69.6|
+| RATSQL v3 + BERT (DB content used) |69.7|65.6|
 | RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
 | IRNet++ + XLNet (DB content used) |65.5|60.1|
 | RATSQL v2 (DB content used)| 62.7| 57.2|
@@ -357,7 +366,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 `Code`
 - [https://github.com/ryanzhumich/editsql](https://github.com/ryanzhumich/editsql)
 
-`Score`  
+`Log_score`  
 
 | EditSQL + BERT  |57.6|53.4|
 |:-:|:-:|:-:|
@@ -369,11 +378,73 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 `Paper`
 - [ ] Choi D H, Shin M C, Kim E G, et al. [RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases]([RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases](https://arxiv.org/pdf/2004.03125.pdf))[J]. 2020.
 
-`Score`  
+`Log_score`  
 | RYANSQL v2 + BERT  | 70.6 | 60.6 |
 |:-:|:-:|:-:|
 | RYANSQL + BERT | 66.6 | 58.2 | 
 | RYANSQL  | 43.3 | - |
+
+----
+**`SmBoP`**   🆕
+> 与自上而下的自回归分析相比，半自回归自底向上解析器具有多种优势。首先，由于每个解码步骤中的子树都是并行生成的，因此理论上的运行时间是对数而不是线性复杂度。其次，自下而上的方法学习在每个步骤上学习语义子程序的表示，而不是语义上模糊的部分树。最后，SMBOP基于Transformer的层将子树相互关联起来，与传统的beam-search不同，以探索过的其他树木为条件为树进行评分。
+
+`Paper`
+- [ ] Rubin O, Berant J. [SmBoP: Semi-autoregressive Bottom-up Semantic Parsing](https://arxiv.org/pdf/2010.12412.pdf)[J]. arXiv preprint arXiv:2010.12412, 2020.
+
+`Code` 
+
+`Log_score`  
+
+| SmBoP + BART | 66.0 | 60.5 |
+|:-:|:-:|:-:|
+
+----
+**`SLSQL`**   🆕
+> Schema Linking is the crux for the current text-to-SQL task. 
+
+`Paper`
+- [ ] Lei W, Wang W, Ma Z, et al. [Re-examining the Role of Schema Linking in Text-to-SQL](https://www.aclweb.org/anthology/2020.emnlp-main.564.pdf)[C]. EMNLP 2020: 6943-6954.
+
+`Code` 
+- [https://github.com/salesforce/TabularSemanticParsing](https://github.com/salesforce/TabularSemanticParsing)
+
+`Log_score`  
+
+| SLSQL + BERT + Data Annotation | 60.8 | 55.7 |
+|:-:|:-:|:-:|
+
+----
+**`BRIDGE `**   🆕
+> 
+
+`Paper`
+- [ ] Lin X V, Socher R, Xiong C. [Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing](https://www.aclweb.org/anthology/2020.findings-emnlp.438.pdf)[C]//EMNLP: Findings. 2020: 4870-4888.
+
+`Code` 
+- [https://github.com/WING-NUS/slsql](https://github.com/WING-NUS/slsql)
+
+`Log_score`  
+
+| BRIDGE(k = 2) + BERT (DB content used) | 65.5 | 59.2 |
+|:-:|:-:|:-:|
+| BRIDGE(k = 1) + BERT (DB content used) | 65.3 | - |
+
+`Exe_score` 
+| BRIDGE(k = 2) + BERT (DB content used) | - | 59.9 |
+|:-:|:-:|:-:|
+
+----
+**`GAZP `**   🆕
+> GAZP combines a forward semantic parser with a backward utterance generator to synthesize data (e.g. utterances and SQL queries)
+in the new environment, then selects cycleconsistent examples to adapt the parser. Unlike data-augmentation, which typically synthesizes unverified examples in the training environment, GAZP synthesizes examples in the new environment whose inputoutput consistency are verified.
+
+`Paper`
+- [ ] Zhong V, Lewis M, Wang S I, et al. [Grounded adaptation for zero-shot executable semantic parsing](https://arxiv.org/pdf/2009.07396.pdf)[C]. EMNLP-2020.
+
+
+`Exe_score` 
+| GAZP + BERT | - | 53.5 |
+|:-:|:-:|:-:|
 
 ----
 **`SQLNet Framework`**  
@@ -428,6 +499,9 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 ##### 1.5 `Other Papers`
   - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
   - [ ] Chen S, San A, Liu X, et al. [A Tale of Two Linkings: Dynamically Gating between Schema Linking and Structural Linking for Text-to-SQL Parsing](https://arxiv.org/abs/2009.14809)[C]. COLING 2020.
+
+##### 1.6 `Tools`
+  -  SQL Parser [https://github.com/mozilla/moz-sql-parser](https://github.com/mozilla/moz-sql-parser)
 
 ##### 2. SQL2Seq  
 
