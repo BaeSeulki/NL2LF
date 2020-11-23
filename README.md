@@ -2,9 +2,9 @@
 ___(持续更新中...)___   
 **_recently update log:_**  
 _1. Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker_   
-_2. SLSQL: Re-examining the Role of Schema Linking in Text-to-SQL_
+_2. SLSQL: Re-examining the Role of Schema Linking in Text-to-SQL_  
 _3. BRIDGE: Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
-_4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_
+_4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_  
 _5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_
 
 
