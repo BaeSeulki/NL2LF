@@ -5,7 +5,8 @@ _1. Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker_
 _2. SLSQL: Re-examining the Role of Schema Linking in Text-to-SQL_  
 _3. BRIDGE: Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
 _4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_  
-_5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_
+_5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_  
+_6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_
 
 
 > The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
@@ -115,7 +116,7 @@ _5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_
     1. Zhang X, Yin F, Ma G, et al. [M-SQL: Multi-Task Representation Learning for Single-Table Text2sql Generation](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9020099)[J]. IEEE Access, 2020, 8: 43156-43167. 🔥
 
 ---
-- **DuSQL**  🔥 **比赛时间：2020/03/10 - 2020/05/20**
+- **DuSQL**  🔥
   > 百度2020语言与智能技术竞赛：语义解析任务，大规模开放领域的复杂中文Text-to-SQL数据集
   > 数据特点：
   > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
@@ -152,7 +153,11 @@ _5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_
   cond_op: (not_in, between, =, >, <, >=, <=, !=, in, like)
   ```
   + `Home` [https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true](https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true)    
-  + `GitHub` [https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline](https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline)    
+  + `GitHub` [https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline](https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline)
+  + `Paper` 
+     - [ ] Wang L, Zhang A, Wu K, et al. [DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset](https://www.aclweb.org/anthology/2020.emnlp-main.562.pdf)[C]//Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP). 2020: 6923-6935.  
+  + `Dataset`
+     [https://github.com/luge-ai/luge-ai/blob/master/semantic-parsing/semantic-parsing.md](https://github.com/luge-ai/luge-ai/blob/master/semantic-parsing/semantic-parsing.md)
   +  `Blog`  
      1. [“语义解析”任务FAQ](https://mp.weixin.qq.com/s/EXS1dgGzAyttAeHwWjrt2A)   
      2. [语义解析 (Text-to-SQL) 技术研究及应用 上篇](https://mp.weixin.qq.com/s/FtsA4O_VTUqhhYS3Gq3G8Q)  
