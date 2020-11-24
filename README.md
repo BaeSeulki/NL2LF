@@ -154,6 +154,7 @@ _6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_
   ```
   + `Home` [https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true](https://aistudio.baidu.com/aistudio/competition/detail/30?isFromCcf=true)    
   + `GitHub` [https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline](https://github.com/PaddlePaddle/Research/tree/master/NLP/DuSQL-Baseline)
+  + `Video` 冠军分享  [http://mbd.baidu.com/webpage?type=live&action=liveshow&source=h5pre&room_id=4008201814](http://mbd.baidu.com/webpage?type=live&action=liveshow&source=h5pre&room_id=4008201814)
   + `Paper` 
      - [ ] Wang L, Zhang A, Wu K, et al. [DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset](https://www.aclweb.org/anthology/2020.emnlp-main.562.pdf)[C]//Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP). 2020: 6923-6935.  
   + `Dataset`
