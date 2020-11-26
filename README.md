@@ -319,7 +319,7 @@ Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.
 
 `Log_score`
 
-|ShadowGNN (DB content used)|64.8|
+|ShadowGNN (DB content used)|-|64.8|
 |:-:|:-:|:-:|
 | GNN + Bertrand-DR | 57.9 | 54.6 |
 | Global-GNN  |52.7|47.4|
