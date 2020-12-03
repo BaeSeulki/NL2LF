@@ -6,7 +6,7 @@ _2. SLSQL: Re-examining the Role of Schema Linking in Text-to-SQL_
 _3. BRIDGE: Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
 _4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_  
 _5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_  
-_6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_
+_6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_  
 _7. Semantic Evaluation for Text-to-SQL with Distilled Test Suites_
 
 
