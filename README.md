@@ -7,6 +7,7 @@ _3. BRIDGE: Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Seman
 _4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_  
 _5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_  
 _6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_
+_7. Semantic Evaluation for Text-to-SQL with Distilled Test Suites_
 
 
 > The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
@@ -507,6 +508,8 @@ in the new environment, then selects cycleconsistent examples to adapt the parse
   - [ ] Chen S, San A, Liu X, et al. [A Tale of Two Linkings: Dynamically Gating between Schema Linking and Structural Linking for Text-to-SQL Parsing](https://arxiv.org/abs/2009.14809)[C]. COLING 2020.
 
 ##### 1.6 `Tools`
+  -  Test suite for text2sql code: [https://github.com/taoyds/test-suite-sql-eval](https://github.com/taoyds/test-suite-sql-eval)   
+  -  Test suite for text2sql paper: Zhong R, Yu T, Klein D. [Semantic Evaluation for Text-to-SQL with Distilled Test Suites](https://arxiv.org/pdf/2010.02840.pdf)[C]. EMNLP2020.
   -  SQL Parser [https://github.com/mozilla/moz-sql-parser](https://github.com/mozilla/moz-sql-parser)
 
 ##### 2. SQL2Seq  
