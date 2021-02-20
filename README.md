@@ -1,12 +1,12 @@
 ## NL2LF 
 ___(持续更新中...)___   
 **_recently update log:_**  
-_1. Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker_   
-_2. SLSQL: Re-examining the Role of Schema Linking in Text-to-SQL_  
-_3. BRIDGE: Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
-_4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_  
-_5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_  
-_6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_
+_1. SeqGenSQL--A Robust Sequence Generation Model for Structured Query Language_   
+_2. SQL Generation via Machine Reading Comprehension_  
+_3. Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
+_4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_  
+
+
 
 
 > The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
@@ -174,309 +174,363 @@ _6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_
 > Log_score 表示逻辑准确率(Logical accuracy)，且Spider中不包括值预测。
 
 #### **`1. WikiSQL:`** 
-**`Weakly Supervised`**  
-> 采用弱监督方法，即不使用sql的逻辑形式作为监督信号。 
+- **`Weakly Supervised`**  
+  > 采用弱监督方法，即不使用sql的逻辑形式作为监督信号。 
 
-`Paper`
-- [ ] Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf)[C]. EMNLP-IJCNLP 2019.  
-- [ ] Wang B, Titov I, Lapata M. [Learning Semantic Parsers from Denotations with Latent Structured Alignments and Abstract Programs](https://arxiv.org/pdf/1909.04165.pdf). 2019.
-- [ ] Agarwal R, Liang C, Schuurmans D, et al. [Learning to Generalize from Sparse and Underspecified Rewards](https://arxiv.org/pdf/1902.07198.pdf). 2019.  
-- [ ] Liang C, Norouzi M, Berant J, et al. [Memory augmented policy optimization for program synthesis and semantic parsing](https://papers.nips.cc/paper/8204-memory-augmented-policy-optimization-for-program-synthesis-and-semantic-parsing.pdf)[C].NeurIPS, 2018: 9994-10006.
-- [ ] Guo T, Gao H. [Using Database Rule for Weak Supervised Text-to-SQL Generation](https://arxiv.org/pdf/1907.00620.pdf)[J]. 2019.
-
-
-`Code` 
-- Hard-EM [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em) 🔥 
-- LatentAlignment [https://github.com/berlino/weaksp_em19](https://github.com/berlino/weaksp_em19)
-- MeRL / MAPO [https://github.com/google-research/google-research/tree/master/meta_reward_learning](https://github.com/google-research/google-research/tree/master/meta_reward_learning)
-- Rule-SQL [https://github.com/guotong1988/Rule-SQL](https://github.com/guotong1988/Rule-SQL)
-
-`Exe_score`  
-
-|Hard-EM|84.4 |  83.9  |
-|-|-|-|
-|LatentAlignment| 79.4 | 79.3 |
-|MeRL | 74.9 | 74.8 |
-|MAPO | 72.2 | 72.1 |
-|Rule-SQL| 61.1 | 61.0 |
-
----
-**`ExecutionGuided`**  
-> Execution Guided 可以在解码阶段通过执行错误对生成sql的项进行修正,从而过滤了一些不符合实际的sql语句。主要分为三类执行错误：1）句法解析错误，即生成的sql语法错误。2）执行失败。常见的run-time error, 例如SUM( ) 和比较string类型的数据；3）假设执行结果不为空，则空查询的条件错误。例如条件值实际并不存在于预测的列中, 因此会去 Beam Search 实际包含条件值的列。
-
-`Paper`  
-- [ ]  Wang C, Huang P S, Polozov A, et al. [Robust Text-to-SQL Generation with Execution-Guided Decoding](https://arxiv.org/pdf/1807.03100.pdf)[J]. 2018.  
-- [ ]  Wang C, Brockschmidt M, Singh R. [Pointing out SQL queries from text](https://openreview.net/pdf?id=BkUDW_lCb)[J]. 2018. 
-- [ ]  Dong L, Lapata M. [Coarse-to-fine decoding for neural semantic parsing](https://arxiv.org/pdf/1805.04793.pdf)[J]. 2018.
-- [ ]  Huang P S, Wang C, Singh R, et al. [Natural language to structured query generation via meta-learning](https://arxiv.org/pdf/1803.02400.pdf)[J]. 2018.
+  `Paper`
+  - [ ] Li N, Keller B, Butler M, et al. [SeqGenSQL--A Robust Sequence Generation Model for Structured Query Language](https://arxiv.org/pdf/2011.03836.pdf)[J]. 2020. 🔥
+  - [ ] Min S, Chen D, Hajishirzi H, et al. [A discrete hard em approach for weakly supervised question answering](https://www.cs.princeton.edu/~danqic/papers/emnlp2019.pdf)[C]. EMNLP-IJCNLP 2019.  
+  - [ ] Wang B, Titov I, Lapata M. [Learning Semantic Parsers from Denotations with Latent Structured Alignments and Abstract Programs](https://arxiv.org/pdf/1909.04165.pdf). 2019.
+  - [ ] Agarwal R, Liang C, Schuurmans D, et al. [Learning to Generalize from Sparse and Underspecified Rewards](https://arxiv.org/pdf/1902.07198.pdf). 2019.  
+  - [ ] Liang C, Norouzi M, Berant J, et al. [Memory augmented policy optimization for program synthesis and semantic parsing](https://papers.nips.cc/paper/8204-memory-augmented-policy-optimization-for-program-synthesis-and-semantic-parsing.pdf)[C].NeurIPS, 2018: 9994-10006.
+  - [ ] Guo T, Gao H. [Using Database Rule for Weak Supervised Text-to-SQL Generation](https://arxiv.org/pdf/1907.00620.pdf)[J]. 2019.
 
 
-`Code`  
-- [https://github.com/microsoft/PointerSQL](https://github.com/microsoft/PointerSQL)  
-- [https://github.com/donglixp/coarse2fine](https://github.com/donglixp/coarse2fine)  
+  `Code` 
+  - Hard-EM [https://github.com/shmsw25/qa-hard-em](https://github.com/shmsw25/qa-hard-em) 🔥 
+  - LatentAlignment [https://github.com/berlino/weaksp_em19](https://github.com/berlino/weaksp_em19)
+  - MeRL / MAPO [https://github.com/google-research/google-research/tree/master/meta_reward_learning](https://github.com/google-research/google-research/tree/master/meta_reward_learning)
+  - Rule-SQL [https://github.com/guotong1988/Rule-SQL](https://github.com/guotong1988/Rule-SQL)
 
-`Exe_score`  
+  `Exe_score`  
 
-|Coarse2Fine + EG| 84.0 | 83.8 |
-|-|-|-|
-| Coarse2Fine | 79.0 | 78.5 |
-| Pointer-SQL + EG | 78.4 |  78.3  |
-| Pointer-SQL | 72.5 | 71.9 |
+  |SeqGenSQL + EG |90.8|90.5|
+  |-|-|-|
+  |SeqGenSQL(T5-base + 250K silver data) |90.6|90.3|
+  |Hard-EM|84.4 |  83.9  |
+  |LatentAlignment| 79.4 | 79.3 |
+  |MeRL | 74.9 | 74.8 |
+  |MAPO | 72.2 | 72.1 |
+  |Rule-SQL| 61.1 | 61.0 |
 
 ---
-**`SQLNet Framework`**  
-> 设计了一种满足SQL语法的框架, 在这样的语法框架内，只需要预测并填充相应的槽位。
-> 语法框架为：
-> ```
-> SELECT $AGG $COLUMN
-> WHERE $COLUMN $OP $VALUE
-> (AND $COLUMN $OP $VALUE)*
-> ```
-> 在这基础上去完成不同的联合任务的分类预测：
-> 1) select-column, 选择的列
-> 2) select-aggregation， 聚合操作类型
-> 3) where-number， where条件语句的数量
-> 4) where-column， where条件中的列
-> 5) where-operator， where条件操作类型（'<','=','>'）
-> 6) where-value， where条件值
+---
+- **`ExecutionGuided`**  
+  > Execution Guided 可以在解码阶段通过执行错误对生成sql的项进行修正,从而过滤了一些不符合实际的sql语句。主要分为三类执行错误：1）句法解析错误，即生成的sql语法错误。2）执行失败。常见的run-time error, 例如SUM( ) 和比较string类型的数据；3）假设执行结果不为空，则空查询的条件错误。例如条件值实际并不存在于预测的列中, 因此会去 Beam Search 实际包含条件值的列。
 
-`Paper`  
-- [ ]  Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
-- [ ]  Hwang W, Yim J, Park S, et al. [A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization](https://arxiv.org/pdf/1902.01069.pdf)[J]. 2019.  
-- [ ]  He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019. 🔥
-- [ ]  Tong Guo, Huilin Gao. [Content Enhanced BERT-based Text-to-SQL Generation ](https://arxiv.org/pdf/1910.07179.pdf).2019.
-- [ ]  Qin Lyu, Kaushik Chakrabarti, Shobhit Hathi, Souvik Kundu,
-Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.microsoft.com/en-us/research/uploads/prod/2020/03/HydraNet_20200311-5e69612887fcb.pdf). 2020 🔥
+  `Paper`  
+  - [ ]  Wang C, Huang P S, Polozov A, et al. [Robust Text-to-SQL Generation with Execution-Guided Decoding](https://arxiv.org/pdf/1807.03100.pdf)[J]. 2018.  
+  - [ ]  Wang C, Brockschmidt M, Singh R. [Pointing out SQL queries from text](https://openreview.net/pdf?id=BkUDW_lCb)[J]. 2018. 
+  - [ ]  Dong L, Lapata M. [Coarse-to-fine decoding for neural semantic parsing](https://arxiv.org/pdf/1805.04793.pdf)[J]. 2018.
+  - [ ]  Huang P S, Wang C, Singh R, et al. [Natural language to structured query generation via meta-learning](https://arxiv.org/pdf/1803.02400.pdf)[J]. 2018.
 
-`Code`  
-- [https://github.com/naver/sqlova](https://github.com/naver/sqlova)  
-- [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
-- [https://github.com/guotong1988/NL2SQL-BERT](https://github.com/guotong1988/NL2SQL-BERT)
 
-`Exe_score`  
+  `Code`  
+  - [https://github.com/microsoft/PointerSQL](https://github.com/microsoft/PointerSQL)  
+  - [https://github.com/donglixp/coarse2fine](https://github.com/donglixp/coarse2fine)  
 
-| RoBERTa-Large-HydraNet + EG |92.4|92.2|
-|-|-|-|
-| BERT-Large-HydraNet + EG |92.2|91.8|
-| RoBERTa-Large-HydraNet |89.1|89.2|
-| BERT-Large-HydraNet |88.9 | 88.6 |
-| BERT-XSQL-Attention + EG |92.3|91.8|
-| (Tong) BERT-base-TableContent-used + EG| 91.1 | 90.1 |
-| (Tong) BERT-base-TableContent-used| 90.3 | 89.2 |
-| BERT-XSQL-Attention | 89.5 | 88.7 |
-| BERT-SQLova-LSTM|87.2 |  86.2  |
-|BERT-SQLova-LSTM + EG | 90.2 | 89.6 |
-|GloVe-SQLNet-BiLSTM|69.8 |  68.0  |
+  `Exe_score`  
+
+  |Coarse2Fine + EG| 84.0 | 83.8 |
+  |-|-|-|
+  | Coarse2Fine | 79.0 | 78.5 |
+  | Pointer-SQL + EG | 78.4 |  78.3  |
+  | Pointer-SQL | 72.5 | 71.9 |
 
 ---
-**`Information Extraction Approach`**  🔥🔥
-> 信息抽取的方法: 采用统一的基于BERT的抽取模型来识别query提及的槽位类型，包括序列标注方法、关系抽取和基于文本匹配的链接方法。
+---
 
-`Paper`
-- [ ] Ping An Life, AI Team. [IE-SQL: Text-to-SQL as Information Extraction](https://drive.google.com/file/d/1t3xEltqKpYJGYekAhQ5vYFen1ocHJ3sY/view) 2020
+- **`SQLNet Framework`**  
+  > 设计了一种满足SQL语法的框架, 在这样的语法框架内，只需要预测并填充相应的槽位。
+  > 语法框架为：
+  > ```
+  > SELECT $AGG $COLUMN
+  > WHERE $COLUMN $OP $VALUE
+  > (AND $COLUMN $OP $VALUE)*
+  > ```
+  > 在这基础上去完成不同的联合任务的分类预测：
+  > 1) select-column, 选择的列
+  > 2) select-aggregation， 聚合操作类型
+  > 3) where-number， where条件语句的数量
+  > 4) where-column， where条件中的列
+  > 5) where-operator， where条件操作类型（'<','=','>'）
+  > 6) where-value， where条件值
 
-`Exe_score`  
+  `Paper`  
+  - [ ]  Xu X, Liu C, Song D. [SQLNet: Generating structured queries from natural language without reinforcement learning](https://arxiv.org/pdf/1711.04436.pdf)[J]. 2018.  
+  - [ ]  Hwang W, Yim J, Park S, et al. [A Comprehensive Exploration on WikiSQL with Table-Aware Word Contextualization](https://arxiv.org/pdf/1902.01069.pdf)[J]. 2019.  
+  - [ ]  He P, Mao Y, Chakrabarti K, et al. [X-SQL: reinforce schema representation with context](https://arxiv.org/pdf/1908.08113.pdf)[J]. 2019. 🔥
+  - [ ]  Tong Guo, Huilin Gao. [Content Enhanced BERT-based Text-to-SQL Generation ](https://arxiv.org/pdf/1910.07179.pdf).2019.
+  - [ ]  Qin Lyu, Kaushik Chakrabarti, Shobhit Hathi, Souvik Kundu,
+  Jianwen Zhang, Zheng Chen. [Hybrid Ranking Network for Text-to-SQL](https://www.microsoft.com/en-us/research/uploads/prod/2020/03/HydraNet_20200311-5e69612887fcb.pdf). 2020 🔥
 
-| BERT-IE-SQL + EG |92.6|92.5|
-|-|-|-|
-| BERT-IE-SQL |88.7|88.8|
+  `Code`  
+  - [https://github.com/naver/sqlova](https://github.com/naver/sqlova)  
+  - [https://github.com/xiaojunxu/SQLNet](https://github.com/xiaojunxu/SQLNet)  
+  - [https://github.com/guotong1988/NL2SQL-BERT](https://github.com/guotong1988/NL2SQL-BERT)
 
+  `Exe_score`  
+
+  | RoBERTa-Large-HydraNet + EG |92.4|92.2|
+  |-|-|-|
+  | BERT-Large-HydraNet + EG |92.2|91.8|
+  | RoBERTa-Large-HydraNet |89.1|89.2|
+  | BERT-Large-HydraNet |88.9 | 88.6 |
+  | BERT-XSQL-Attention + EG |92.3|91.8|
+  | (Tong) BERT-base-TableContent-used + EG| 91.1 | 90.1 |
+  | (Tong) BERT-base-TableContent-used| 90.3 | 89.2 |
+  | BERT-XSQL-Attention | 89.5 | 88.7 |
+  | BERT-SQLova-LSTM|87.2 |  86.2  |
+  |BERT-SQLova-LSTM + EG | 90.2 | 89.6 |
+  |GloVe-SQLNet-BiLSTM|69.8 |  68.0  |
 
 ---
-**`Model Interactive`**  
-> 基于用户交互的语义解析，更偏向于落地实践。在生成sql后，通过自然语句生成来进一步要求用户进行意图澄清，从而对sql进行修正。
+---
 
-`Blog` 
-- [Facebook提出全新交互式语义分析框架，自然语言生成SQL语句准确率提升10%](https://mp.weixin.qq.com/s/B3Rw-Rqy8b4-HtWPBtEI_w)  
+- **`Information Extraction Approach`**  🔥🔥
+  > 信息抽取的方法: 采用统一的基于BERT的抽取模型来识别query提及的槽位类型，包括序列标注方法、关系抽取和基于文本匹配的链接方法。
 
-`Paper`
-- [ ] Yao Z, Su Y, Sun H, et al. [Model-based Interactive Semantic Parsing: A Unified Framework and A Text-to-SQL Case Study](https://arxiv.org/pdf/1910.05389.pdf)[C]. EMNLP-IJCNLP 2019.  
+  `Paper`
+  - [ ] Ping An Life, AI Team. [IE-SQL: Mention Extraction and Linking for SQL Query Generation](https://drive.google.com/file/d/1t3xEltqKpYJGYekAhQ5vYFen1ocHJ3sY/view) 2020
 
-`Code`
-- [https://github.com/sunlab-osu/MISP](https://github.com/sunlab-osu/MISP)
+  `Exe_score`  
 
+  | BERT-IE-SQL + EG |92.6|92.5|
+  |-|-|-|
+  | BERT-IE-SQL |88.7|88.8|
+
+---
+---
+
+- **`MRC Approach`**  🔥
+  > 阅读理解的方法: 与传统槽位填充方法不同的是，该方法将NL2SQL转化为QA问题,通过统一的MRC框架来预测不同的槽位。
+
+  `Paper`
+  - [ ] Yan Z, Ma J, Zhang Y, et al. [SQL Generation via Machine Reading Comprehension](https://www.aclweb.org/anthology/2020.coling-main.31.pdf)[C]//Proceedings of the 28th International Conference on Computational Linguistics. 2020: 350-356.
+  
+  `Code`  
+  - [https://github.com/nl2sql/QA-SQL](https://github.com/nl2sql/QA-SQL)  
+  
+  `Exe_score`
+
+  | BERT-MRC-SQL + STILTs training + AGG enhancement |87.8|87.4|
+  |-|-|-|
+  | BERT-MRC-SQL + STILTs training |86.2|86.0|
+  | BERT-MRC-SQL |85.9|85.9|
+
+---
+---
+
+- **`Model Interactive`**  
+  > 基于用户交互的语义解析，更偏向于落地实践。在生成sql后，通过自然语句生成来进一步要求用户进行意图澄清，从而对sql进行修正。
+
+  `Blog` 
+  - [Facebook提出全新交互式语义分析框架，自然语言生成SQL语句准确率提升10%](https://mp.weixin.qq.com/s/B3Rw-Rqy8b4-HtWPBtEI_w)  
+
+  `Paper`
+  - [ ] Yao Z, Su Y, Sun H, et al. [Model-based Interactive Semantic Parsing: A Unified Framework and A Text-to-SQL Case Study](https://arxiv.org/pdf/1910.05389.pdf)[C]. EMNLP-IJCNLP 2019.  
+
+  `Code`
+  - [https://github.com/sunlab-osu/MISP](https://github.com/sunlab-osu/MISP)
+
+----
 ----
 #### **`2. Spider:`**  
 
-**`GNN Encoding Seq2Seq`**  🔥
-> 利用多表关联信息来建立一个表名、列名为节点，表内、表间关系为边的图。
-> 通过GNN方法计算每一个节点(table item)的隐藏状态。
-> 在seq2seq模型的encoding阶段，每个query word 向量对每个 table item隐藏向量进行attention计算， 并将attention权重作为每个query word的图表示。
-> 在decoding阶段，结合语法规则，如果输出应为table item,则将输出向量与所有table item隐藏向量进行全连接打分，计算其关联程度。
+- **`GNN Encoding Seq2Seq`**  🔥
+  > 利用多表关联信息来建立一个表名、列名为节点，表内、表间关系为边的图。
+  > 通过GNN方法计算每一个节点(table item)的隐藏状态。
+  > 在seq2seq模型的encoding阶段，每个query word 向量对每个 table item隐藏向量进行attention计算， 并将attention权重作为每个query word的图表示。
+  > 在decoding阶段，结合语法规则，如果输出应为table item,则将输出向量与所有table item隐藏向量进行全连接打分，计算其关联程度。
 
-`Paper`
-- [ ] Krishnamurthy J, Dasigi P, Gardner M. [Neural semantic parsing with type constraints for semi-structured tables](https://www.aclweb.org/anthology/D17-1160.pdf)[C]. EMNLP 2017.
-- [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
-- [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
-- [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019.
-- [ ] Shaw P, Massey P, Chen A, et al. [Generating Logical Forms from Graph Representations of Text and Entities](https://arxiv.org/pdf/1905.08407.pdf)[C]. ACL 2019.
-- [ ] Kelkar A, Relan R, Bhardwaj V, et al. [Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker](https://arxiv.org/pdf/2002.00557.pdf)[J]. arXiv preprint arXiv:2002.00557, 2020. 🆕
+  `Paper`
+  - [ ] Krishnamurthy J, Dasigi P, Gardner M. [Neural semantic parsing with type constraints for semi-structured tables](https://www.aclweb.org/anthology/D17-1160.pdf)[C]. EMNLP 2017.
+  - [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
+  - [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
+  - [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019.
+  - [ ] Shaw P, Massey P, Chen A, et al. [Generating Logical Forms from Graph Representations of Text and Entities](https://arxiv.org/pdf/1905.08407.pdf)[C]. ACL 2019.
+  - [ ] Kelkar A, Relan R, Bhardwaj V, et al. [Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker](https://arxiv.org/pdf/2002.00557.pdf)[J]. arXiv preprint arXiv:2002.00557, 2020. 🆕
 
-`Code`  
-- [https://github.com/benbogin/spider-schema-gnn](https://github.com/benbogin/spider-schema-gnn)
-- [https://github.com/benbogin/spider-schema-gnn-global](https://github.com/benbogin/spider-schema-gnn-global)
-- [https://github.com/amolk/Bertrand-DR](https://github.com/amolk/Bertrand-DR) 🆕
+  `Code`  
+  - [https://github.com/benbogin/spider-schema-gnn](https://github.com/benbogin/spider-schema-gnn)
+  - [https://github.com/benbogin/spider-schema-gnn-global](https://github.com/benbogin/spider-schema-gnn-global)
+  - [https://github.com/amolk/Bertrand-DR](https://github.com/amolk/Bertrand-DR) 🆕
 
-`Log_score`
+  `Log_score`
 
-|ShadowGNN (DB content used)|-|64.8|
-|:-:|:-:|:-:|
-| GNN + Bertrand-DR | 57.9 | 54.6 |
-| Global-GNN  |52.7|47.4|
-| GNN | 40.7 | 39.4 |
-| GNN w/edge vectors| 32.1 | - |
+  |ShadowGNN (DB content used)|-|64.8|
+  |:-:|:-:|:-:|
+  | GNN + Bertrand-DR | 57.9 | 54.6 |
+  | Global-GNN  |52.7|47.4|
+  | GNN | 40.7 | 39.4 |
+  | GNN w/edge vectors| 32.1 | - |
 
 ---
- **`Microsoft works`** | **`IRNet`** | **`RATSQL`**  🔥🔥🔥  
-`Blog & Video`  
-- [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
-- [Use Ideas in Excel to get Immediate answers with ONE Click]( https://www.youtube.com/watch?v=bey_1SUTB4k)
+---
 
-`Paper`  
-- [ ] Guo J, Zhan Z, Gao Y, et al. [Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation](https://arxiv.org/pdf/1905.08205.pdf)[C]. ACL 2019.
-- [ ] Dong Z, Sun S, Liu H, et al. [Data-Anonymous Encoding for Text-to-SQL Generation](https://www.aclweb.org/anthology/D19-1543.pdf)[C] EMNLP-IJCNLP 2019.
-- [ ] Liu H, Fang L, Liu Q, et al. [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP-IJCNLP 2019.
-- [ ] Liu Q, Chen B, Lou J G, et al. [FANDA: A Novel Approach to Perform Follow-up Query Analysis](https://arxiv.org/pdf/1901.08259.pdf)[C]. AAAI 2019.
-- [ ] Liu Q, Chen B, Liu H, et al. [A Split-and-Recombine Approach for Follow-up Query Analysis](https://www.aclweb.org/anthology/D19-1535.pdf)[C]. EMNLP-IJCNLP 2019.
-- [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C]. ACL 2020. 
-  <!-- [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). -->
+- **`Microsoft works`** | **`IRNet`** | **`RATSQL`**  🔥🔥🔥  
 
-  
-`Code`
-- [https://github.com/microsoft/IRNet](https://github.com/microsoft/IRNet)
-- [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
-- [https://github.com/Microsoft/rat-sql](https://github.com/Microsoft/rat-sql)  not public
+  `Blog & Video`  
+  - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
+  - [Use Ideas in Excel to get Immediate answers with ONE Click]( https://www.youtube.com/watch?v=bey_1SUTB4k)
 
-`Log_score` 
-| RATSQL + GAP (DB content used) |71.8|69.7|
-|:-:|:-:|:-:|
-| RATSQL + GraPPa (DB content used) |73.4|69.6|
-| RATSQL v3 + BERT (DB content used) |69.7|65.6|
-| RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
-| IRNet++ + XLNet (DB content used) |65.5|60.1|
-| RATSQL v2 (DB content used)| 62.7| 57.2|
-| RATSQL + BERT | 60.8 | 55.7 |
-| IRNet-v2 + BERT  |63.9|55.0|
-| IRNet + BERT-Base | 61.9 | 54.7 |
-| RATSQL  |60.6|53.7|
-| IRNet-v2 | 55.4 | 48.5 |
-| IRNet| 53.2 | 46.7 | 
+  `Paper`  
+  - [ ] Guo J, Zhan Z, Gao Y, et al. [Towards Complex Text-to-SQL in Cross-Domain Database with Intermediate Representation](https://arxiv.org/pdf/1905.08205.pdf)[C]. ACL 2019.
+  - [ ] Dong Z, Sun S, Liu H, et al. [Data-Anonymous Encoding for Text-to-SQL Generation](https://www.aclweb.org/anthology/D19-1543.pdf)[C] EMNLP-IJCNLP 2019.
+  - [ ] Liu H, Fang L, Liu Q, et al. [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP-IJCNLP 2019.
+  - [ ] Liu Q, Chen B, Lou J G, et al. [FANDA: A Novel Approach to Perform Follow-up Query Analysis](https://arxiv.org/pdf/1901.08259.pdf)[C]. AAAI 2019.
+  - [ ] Liu Q, Chen B, Liu H, et al. [A Split-and-Recombine Approach for Follow-up Query Analysis](https://www.aclweb.org/anthology/D19-1535.pdf)[C]. EMNLP-IJCNLP 2019.
+  - [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C]. ACL 2020. 
+    <!-- [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). -->
+
+    
+  `Code`
+  - [https://github.com/microsoft/IRNet](https://github.com/microsoft/IRNet)
+  - [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
+  - [https://github.com/Microsoft/rat-sql](https://github.com/Microsoft/rat-sql)
+
+  `Log_score` 
+
+  |RAT-SQL + GraPPa + Adv (DB content used)|75.5|70.5|
+  |:-:|:-:|:-:|
+  |RATSQL + GraPPa + GP (DB content used)|72.8|69.8|
+  | RATSQL + GAP (DB content used) |71.8|69.7|
+  | RATSQL + GraPPa (DB content used) |73.4|69.6|
+  | RATSQL v3 + BERT (DB content used) |69.7|65.6|
+  | RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
+  | IRNet++ + XLNet (DB content used) |65.5|60.1|
+  | RATSQL v2 (DB content used)| 62.7| 57.2|
+  | RATSQL + BERT | 60.8 | 55.7 |
+  | IRNet-v2 + BERT  |63.9|55.0|
+  | IRNet + BERT-Base | 61.9 | 54.7 |
+  | RATSQL  |60.6|53.7|
+  | IRNet-v2 | 55.4 | 48.5 |
+  | IRNet| 53.2 | 46.7 | 
 
 -------
+--------
 
-**`EditSQL`**  🔥
+- **`EditSQL`**  🔥
 
-`Paper`
-- [ ] Zhang R, Yu T, Er H Y, et al. [Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions](https://arxiv.org/pdf/1909.00786.pdf)[C]. EMNLP-IJCNLP 2019.
+  `Paper`
+  - [ ] Zhang R, Yu T, Er H Y, et al. [Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions](https://arxiv.org/pdf/1909.00786.pdf)[C]. EMNLP-IJCNLP 2019.
 
-`Code`
-- [https://github.com/ryanzhumich/editsql](https://github.com/ryanzhumich/editsql)
+  `Code`
+  - [https://github.com/ryanzhumich/editsql](https://github.com/ryanzhumich/editsql)
 
-`Log_score`  
+  `Log_score`  
 
-| EditSQL + BERT  |57.6|53.4|
-|:-:|:-:|:-:|
-| EditSQL | 36.4 | 32.9 |  
-
-----
-**`RYANSQL`**  🔥
-
-`Paper`
-- [ ] Choi D H, Shin M C, Kim E G, et al. [RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases]([RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases](https://arxiv.org/pdf/2004.03125.pdf))[J]. 2020.
-
-`Log_score`  
-| RYANSQL v2 + BERT  | 70.6 | 60.6 |
-|:-:|:-:|:-:|
-| RYANSQL + BERT | 66.6 | 58.2 | 
-| RYANSQL  | 43.3 | - |
+  | EditSQL + BERT  |57.6|53.4|
+  |:-:|:-:|:-:|
+  | EditSQL | 36.4 | 32.9 |  
 
 ----
-**`SmBoP`**   🆕
-> 与自上而下的自回归分析相比，半自回归自底向上解析器具有多种优势。首先，由于每个解码步骤中的子树都是并行生成的，因此理论上的运行时间是对数而不是线性复杂度。其次，自下而上的方法学习在每个步骤上学习语义子程序的表示，而不是语义上模糊的部分树。最后，SMBOP基于Transformer的层将子树相互关联起来，与传统的beam-search不同，以探索过的其他树木为条件为树进行评分。
+----
 
-`Paper`
-- [ ] Rubin O, Berant J. [SmBoP: Semi-autoregressive Bottom-up Semantic Parsing](https://arxiv.org/pdf/2010.12412.pdf)[J]. arXiv preprint arXiv:2010.12412, 2020.
+- **`RYANSQL`**  🔥
 
-`Code` 
+  `Paper`
+  - [ ] Choi D H, Shin M C, Kim E G, et al. [RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases]([RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases](https://arxiv.org/pdf/2004.03125.pdf))[J]. 2020.
 
-`Log_score`  
-
-| SmBoP + BART | 66.0 | 60.5 |
-|:-:|:-:|:-:|
+  `Log_score`  
+  | RYANSQL v2 + BERT  | 70.6 | 60.6 |
+  |:-:|:-:|:-:|
+  | RYANSQL + BERT | 66.6 | 58.2 | 
+  | RYANSQL  | 43.3 | - |
 
 ----
-**`SLSQL`**   🆕
-> Schema Linking is the crux for the current text-to-SQL task. 
+----
 
-`Paper`
-- [ ] Lei W, Wang W, Ma Z, et al. [Re-examining the Role of Schema Linking in Text-to-SQL](https://www.aclweb.org/anthology/2020.emnlp-main.564.pdf)[C]. EMNLP 2020: 6943-6954.
+- **`SmBoP`**   
+  > 与自上而下的自回归分析相比，半自回归自底向上解析器具有多种优势。首先，由于每个解码步骤中的子树都是并行生成的，因此理论上的运行时间是对数而不是线性复杂度。其次，自下而上的方法学习在每个步骤上学习语义子程序的表示，而不是语义上模糊的部分树。最后，SMBOP基于Transformer的层将子树相互关联起来，与传统的beam-search不同，以探索过的其他树木为条件为树进行评分。
 
-`Code` 
-- [https://github.com/salesforce/TabularSemanticParsing](https://github.com/salesforce/TabularSemanticParsing)
+  `Paper`
+  - [ ] Rubin O, Berant J. [SmBoP: Semi-autoregressive Bottom-up Semantic Parsing](https://arxiv.org/pdf/2010.12412.pdf)[J]. arXiv preprint arXiv:2010.12412, 2020.
 
-`Log_score`  
+  `Code` 
 
-| SLSQL + BERT + Data Annotation | 60.8 | 55.7 |
-|:-:|:-:|:-:|
+  `Log_score`  
+
+  | SmBoP + BART | 66.0 | 60.5 |
+  |:-:|:-:|:-:|
 
 ----
-**`BRIDGE `**   🆕
-> 
+----
 
-`Paper`
-- [ ] Lin X V, Socher R, Xiong C. [Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing](https://www.aclweb.org/anthology/2020.findings-emnlp.438.pdf)[C]//EMNLP: Findings. 2020: 4870-4888.
+- **`SLSQL`**   
+  > Schema Linking is the crux for the current text-to-SQL task. 
 
-`Code` 
-- [https://github.com/WING-NUS/slsql](https://github.com/WING-NUS/slsql)
+  `Paper`
+  - [ ] Lei W, Wang W, Ma Z, et al. [Re-examining the Role of Schema Linking in Text-to-SQL](https://www.aclweb.org/anthology/2020.emnlp-main.564.pdf)[C]. EMNLP 2020: 6943-6954.
 
-`Log_score`  
+  `Code` 
+  - [https://github.com/salesforce/TabularSemanticParsing](https://github.com/salesforce/TabularSemanticParsing)
 
-| BRIDGE(k = 2) + BERT (DB content used) | 65.5 | 59.2 |
-|:-:|:-:|:-:|
-| BRIDGE(k = 1) + BERT (DB content used) | 65.3 | - |
+  `Log_score`  
 
-`Exe_score` 
-| BRIDGE(k = 2) + BERT (DB content used) | - | 59.9 |
-|:-:|:-:|:-:|
+  | SLSQL + BERT + Data Annotation | 60.8 | 55.7 |
+  |:-:|:-:|:-:|
 
 ----
-**`GAZP `**   🆕
-> GAZP combines a forward semantic parser with a backward utterance generator to synthesize data (e.g. utterances and SQL queries)
-in the new environment, then selects cycleconsistent examples to adapt the parser. Unlike data-augmentation, which typically synthesizes unverified examples in the training environment, GAZP synthesizes examples in the new environment whose inputoutput consistency are verified.
+----
 
-`Paper`
-- [ ] Zhong V, Lewis M, Wang S I, et al. [Grounded adaptation for zero-shot executable semantic parsing](https://arxiv.org/pdf/2009.07396.pdf)[C]. EMNLP-2020.
+- **`BRIDGE `**   🔥🔥
+  > 
+
+  `Paper`
+  - [ ] Lin X V, Socher R, Xiong C. [Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing](https://www.aclweb.org/anthology/2020.findings-emnlp.438.pdf)[C]//EMNLP: Findings. 2020: 4870-4888.
+
+  `Code` 
+  - [https://github.com/WING-NUS/slsql](https://github.com/WING-NUS/slsql)
+
+  `Log_score`  
+
+  | BRIDGE(k = 2) + BERT (DB content used) | 65.5 | 59.2 |
+  |:-:|:-:|:-:|
+  | BRIDGE(k = 1) + BERT (DB content used) | 65.3 | - |
+
+  `Exe_score` 
+  | BRIDGE v2 + BERT(ensemble) (DB content used) | - | 68.3 |
+  |:-:|:-:|:-:|
+  | BRIDGE v2 + BERT (DB content used) | - | 64.3 |
+  | BRIDGE(k = 2) + BERT (DB content used) | - | 59.9 |
+----
+----
+
+- **`GAZP `**   🆕
+  > GAZP combines a forward semantic parser with a backward utterance generator to synthesize data (e.g. utterances and SQL queries)
+  in the new environment, then selects cycleconsistent examples to adapt the parser. Unlike data-augmentation, which typically synthesizes unverified examples in the training environment, GAZP synthesizes examples in the new environment whose inputoutput consistency are verified.
+
+  `Paper`
+  - [ ] Zhong V, Lewis M, Wang S I, et al. [Grounded adaptation for zero-shot executable semantic parsing](https://arxiv.org/pdf/2009.07396.pdf)[C]. EMNLP-2020.
 
 
-`Exe_score` 
-| GAZP + BERT | - | 53.5 |
-|:-:|:-:|:-:|
+  `Exe_score` 
+  | GAZP + BERT | - | 53.5 |
+  |:-:|:-:|:-:|
 
 ----
-**`SQLNet Framework`**  
+----
 
-`Paper`
-- [ ] [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP 2019
-- [ ] Yu T, Yasunaga M, Yang K, et al. [Syntaxsqlnet: Syntax tree networks for complex and cross-domaintext-to-sql task](https://arxiv.org/pdf/1810.05237.pdf)[C]. EMNLP 2018.
-- [ ] Dongjun Lee. [Clause-Wise and Recursive Decoding for Complex and Cross-Domain Text-to-SQL Generation](https://arxiv.org/pdf/1904.08835.pdf)[C]. EMNLP 2019.
-- [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
+- **`SQLNet Framework`**  
 
-`Code`  
-- [https://github.com/taoyds/syntaxSQL](https://github.com/taoyds/syntaxSQL)
+  `Paper`
+  - [ ] [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP 2019
+  - [ ] Yu T, Yasunaga M, Yang K, et al. [Syntaxsqlnet: Syntax tree networks for complex and cross-domaintext-to-sql task](https://arxiv.org/pdf/1810.05237.pdf)[C]. EMNLP 2018.
+  - [ ] Dongjun Lee. [Clause-Wise and Recursive Decoding for Complex and Cross-Domain Text-to-SQL Generation](https://arxiv.org/pdf/1904.08835.pdf)[C]. EMNLP 2019.
+  - [ ] Lin K, Bogin B, Neumann M, et al. [Grammar-based Neural Text-to-SQL Generation](https://arxiv.org/pdf/1905.13326.pdf). 2019.
 
-`Score`  
+  `Code`  
+  - [https://github.com/taoyds/syntaxSQL](https://github.com/taoyds/syntaxSQL)
 
-| GrammarSQL | 34.8 | 33.8 |
-|:-:|:-:|:-:|
-| SyntaxSQLNet + augment  |24.8|27.2|
-| RCSQL | 28.5 | 24.3 | 
-| SyntaxSQLNet | 18.9 | 19.7 |
-| SQLNet | 10.9 | 12.4 |
+  `Score`  
+
+  | GrammarSQL | 34.8 | 33.8 |
+  |:-:|:-:|:-:|
+  | SyntaxSQLNet + augment  |24.8|27.2|
+  | RCSQL | 28.5 | 24.3 | 
+  | SyntaxSQLNet | 18.9 | 19.7 |
+  | SQLNet | 10.9 | 12.4 |
 
 ---
+---
+
 #### 三、相关资源扩展 (extend resources)
 ##### 1. Related Works  
 ##### 1.1 `Pre-training`  🔥🔥🔥 
+  >  A new method for Text-to-SQL parsing, Grammar Pre-training (GP),is proposed to decode deep relations between question and database.
+  - [ ]Zhao L, Cao H, Zhao Y. [GP: Context-free Grammar Pre-training for Text-to-SQL Parsers](https://arxiv.org/pdf/2101.09901.pdf)[J]. arXiv preprint arXiv:2101.09901, 2021.
+
   >  An effective pre-training approach for table semantic parsing that learns a compositional inductive bias in the joint representations of textual and tabular data.
   - [ ] Yu T, Wu C S, Lin X V, et al. [GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2009.13845)[J]. 2020. 🆕
 
