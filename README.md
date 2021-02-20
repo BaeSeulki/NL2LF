@@ -1,12 +1,22 @@
 ## NL2LF 
 ___(持续更新中...)___   
 **_recently update log:_**  
+<<<<<<< HEAD
 _1. SeqGenSQL--A Robust Sequence Generation Model for Structured Query Language_   
 _2. SQL Generation via Machine Reading Comprehension_  
 _3. Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
 _4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_  
 
 
+=======
+_1. Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker_   
+_2. SLSQL: Re-examining the Role of Schema Linking in Text-to-SQL_  
+_3. BRIDGE: Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
+_4. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_  
+_5. GAZP: Grounded Adaptation for Zero-shot Executable Semantic Parsing_  
+_6. DuSQL: A Large-Scale and Pragmatic Chinese Text-to-SQL Dataset_  
+_7. Semantic Evaluation for Text-to-SQL with Distilled Test Suites_
+>>>>>>> 24dce617a7b2e8efb5f3a501d4f76007fa4309dd
 
 
 > The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
@@ -561,6 +571,8 @@ _4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_
   - [ ] Chen S, San A, Liu X, et al. [A Tale of Two Linkings: Dynamically Gating between Schema Linking and Structural Linking for Text-to-SQL Parsing](https://arxiv.org/abs/2009.14809)[C]. COLING 2020.
 
 ##### 1.6 `Tools`
+  -  Test suite for text2sql code: [https://github.com/taoyds/test-suite-sql-eval](https://github.com/taoyds/test-suite-sql-eval)   
+  -  Test suite for text2sql paper: Zhong R, Yu T, Klein D. [Semantic Evaluation for Text-to-SQL with Distilled Test Suites](https://arxiv.org/pdf/2010.02840.pdf)[C]. EMNLP2020.
   -  SQL Parser [https://github.com/mozilla/moz-sql-parser](https://github.com/mozilla/moz-sql-parser)
 
 ##### 2. SQL2Seq  
