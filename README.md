@@ -2,10 +2,11 @@
 ___(持续更新中...)___   
 **_recently update log:_**  
 
-_1. SeqGenSQL--A Robust Sequence Generation Model for Structured Query Language_   
-_2. SQL Generation via Machine Reading Comprehension_  
-_3. Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing_  
-_4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_  
+_1. STRUG: Structure-Grounded Pretraining for Text-to-SQL_   
+_2. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_   
+_3. SDSQL: Improving Text-to-SQL with Schema Dependency Learning_  
+
+
 
 
 > The Resources for `Natural Language to Logical Form` Research, Focus on `NL2SQL` first.  
@@ -276,6 +277,21 @@ _4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_
 ---
 ---
 
+- **`Schema Dependency Guided`**  🔥🔥
+  > 结合Question和Schema之间的依存关系来进行多任务学习。
+
+  `Paper`
+  - [ ] Hui B, Shi X, Geng R, et al. [Improving Text-to-SQL with Schema Dependency Learning](https://arxiv.org/pdf/2103.04399.pdf)[J]. arXiv preprint arXiv:2103.04399, 2021.
+
+  `Exe_score`  
+
+  | SDSQL + EG |92.5|92.4|
+  |-|-|-|
+  | SDSQL |88.7|88.8|
+
+---
+---
+
 - **`Information Extraction Approach`**  🔥🔥
   > 信息抽取的方法: 采用统一的基于BERT的抽取模型来识别query提及的槽位类型，包括序列标注方法、关系抽取和基于文本匹配的链接方法。
 
@@ -357,7 +373,7 @@ _4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_
 ---
 ---
 
-- **`Microsoft works`** | **`IRNet`** | **`RATSQL`**  🔥🔥🔥  
+- **`Microsoft works`(origin)** | **`IRNet`** | **`RATSQL`**  🔥🔥🔥  
 
   `Blog & Video`  
   - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
@@ -385,6 +401,7 @@ _4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_
   |RATSQL + GraPPa + GP (DB content used)|72.8|69.8|
   | RATSQL + GAP (DB content used) |71.8|69.7|
   | RATSQL + GraPPa (DB content used) |73.4|69.6|
+  | RAT-SQL + STRUG (DB content used) | 72.6 |68.4|
   | RATSQL v3 + BERT (DB content used) |69.7|65.6|
   | RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
   | IRNet++ + XLNet (DB content used) |65.5|60.1|
@@ -434,13 +451,18 @@ _4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_
   > 与自上而下的自回归分析相比，半自回归自底向上解析器具有多种优势。首先，由于每个解码步骤中的子树都是并行生成的，因此理论上的运行时间是对数而不是线性复杂度。其次，自下而上的方法学习在每个步骤上学习语义子程序的表示，而不是语义上模糊的部分树。最后，SMBOP基于Transformer的层将子树相互关联起来，与传统的beam-search不同，以探索过的其他树木为条件为树进行评分。
 
   `Paper`
-  - [ ] Rubin O, Berant J. [SmBoP: Semi-autoregressive Bottom-up Semantic Parsing](https://arxiv.org/pdf/2010.12412.pdf)[J]. arXiv preprint arXiv:2010.12412, 2020.
+  - [ ] Rubin O, Berant J. [SmBoP: Semi-autoregressive Bottom-up Semantic Parsing](https://arxiv.org/pdf/2010.12412.pdf)[C]. NAACL, 2021.
 
-  `Code` 
+  `Code`  [https://github.com/OhadRubin/SmBop](https://github.com/OhadRubin/SmBop)
 
   `Log_score`  
 
+  | SmBoP + GraPPa (DB content used) |74.7 | 69.5|
+  |:-:|:-:|:-:|
   | SmBoP + BART | 66.0 | 60.5 |
+
+  `Exe_score` 
+  | SmBoP + GraPPa (DB content used) | - | 71.1 |
   |:-:|:-:|:-:|
 
 ----
@@ -527,6 +549,8 @@ _4. GP: Context-free Grammar Pre-training for Text-to-SQL Parsers_
 #### 三、相关资源扩展 (extend resources)
 ##### 1. Related Works  
 ##### 1.1 `Pre-training`  🔥🔥🔥 
+  >  A novel weakly supervised Structure-Grounded pretraining framework (STRUG) for text-to-SQL that can effectively learn to capture text-table alignment based on a parallel text-table corpus. 
+  - [ ]Deng X, Awadallah A H, Meek C, et al. [Structure-Grounded Pretraining for Text-to-SQL](https://arxiv.org/pdf/2010.12773.pdf)[C]. NAACL, 2021.
   >  A new method for Text-to-SQL parsing, Grammar Pre-training (GP),is proposed to decode deep relations between question and database.
   - [ ]Zhao L, Cao H, Zhao Y. [GP: Context-free Grammar Pre-training for Text-to-SQL Parsers](https://arxiv.org/pdf/2101.09901.pdf)[J]. arXiv preprint arXiv:2101.09901, 2021.
 
