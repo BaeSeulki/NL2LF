@@ -2,9 +2,9 @@
 ___(持续更新中...)___   
 **_recently update log:_**  
 
-_1. STRUG: Structure-Grounded Pretraining for Text-to-SQL_   
-_2. SmBoP: Semi-autoregressive Bottom-up Semantic Parsing_   
-_3. SDSQL: Improving Text-to-SQL with Schema Dependency Learning_  
+_1. SeaD: End-to-end Text-to-SQL Generation with Schema-aware Denoising_   
+_2. SeqGenSQL -- A Robust Sequence Generation Model for Structured Query Language （T5）_   
+_3. BRIDGE^_  
 
 
 
@@ -194,10 +194,8 @@ _3. SDSQL: Improving Text-to-SQL with Schema Dependency Learning_
 
   `Exe_score`  
 
-  |SeqGenSQL + EG |90.8|90.5|
-  |-|-|-|
-  |SeqGenSQL(T5-base + 250K silver data) |90.6|90.3|
   |Hard-EM|84.4 |  83.9  |
+  |-|-|-|
   |LatentAlignment| 79.4 | 79.3 |
   |MeRL | 74.9 | 74.8 |
   |MAPO | 72.2 | 72.1 |
@@ -206,7 +204,7 @@ _3. SDSQL: Improving Text-to-SQL with Schema Dependency Learning_
 ---
 ---
 - **`ExecutionGuided`**  
-  > Execution Guided 可以在解码阶段通过执行错误对生成sql的项进行修正,从而过滤了一些不符合实际的sql语句。主要分为三类执行错误：1）句法解析错误，即生成的sql语法错误。2）执行失败。常见的run-time error, 例如SUM( ) 和比较string类型的数据；3）假设执行结果不为空，则空查询的条件错误。例如条件值实际并不存在于预测的列中, 因此会去 Beam Search 实际包含条件值的列。
+  > Execution Guided (EG) 可以在解码阶段通过执行错误对生成sql的项进行修正,从而过滤了一些不符合实际的sql语句。主要分为三类执行错误：1）句法解析错误，即生成的sql语法错误。2）执行失败。常见的run-time error, 例如SUM( ) 和比较string类型的数据；3）假设执行结果不为空，则空查询的条件错误。例如条件值实际并不存在于预测的列中, 因此会去 Beam Search 实际包含条件值的列。
 
   `Paper`  
   - [ ]  Wang C, Huang P S, Polozov A, et al. [Robust Text-to-SQL Generation with Execution-Guided Decoding](https://arxiv.org/pdf/1807.03100.pdf)[J]. 2018.  
@@ -277,6 +275,22 @@ _3. SDSQL: Improving Text-to-SQL with Schema Dependency Learning_
 ---
 ---
 
+- **`Schema aware Denoising (SeaD)`**  🔥🔥
+  > 在text-to-SQL任务中，由于架构设计的限制，seq2seq模型通常会导致局部最优。在本文中，作者提出了一种简单而有效的方法：采用基于transformer的seq2seq模型来加强文本到SQL生成。使用模式感知去噪（SeaD）对seq2seq模型进行训练：由两个去噪目标组成，训练模型从erosion和随机噪声中恢复输入或预测输出(自回归方式)，而不是对encoder施加约束或将任务重新格式化为槽位填充。这些去噪目标作为辅助任务，用于在seq2seq生成中更好地建模结构数据。此外，作者改进并提出了一种子句敏感执行引导（Execution Guided, EG）解码策略，以克服生成模型EG解码的局限性。
+
+  `Paper`
+  - [ ] [1] Xuan K ,  Wang Y ,  Wang Y , et al. [SeaD: End-to-end Text-to-SQL Generation with Schema-aware Denoising
+](https://arxiv.org/pdf/2105.07911.pdf)[J].  2021.
+
+  `Exe_score`  
+
+  | SeaD + EG |92.9|93.0|
+  |-|-|-|
+  | SeaD |90.2|90.1|
+
+---
+---
+
 - **`Schema Dependency Guided`**  🔥🔥
   > 结合Question和Schema之间的依存关系来进行多任务学习。
 
@@ -292,7 +306,43 @@ _3. SDSQL: Improving Text-to-SQL with Schema Dependency Learning_
 ---
 ---
 
-- **`Information Extraction Approach`**  🔥🔥
+- **`BRIDGE^`**   🔥
+
+  `Paper`
+  - [ ] Lin X V, Socher R, Xiong C. [Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing](https://www.aclweb.org/anthology/2020.findings-emnlp.438.pdf)[C]//EMNLP: Findings. 2020: 4870-4888.
+
+  `Code` 
+  - [https://github.com/salesforce/TabularSemanticParsing](https://github.com/salesforce/TabularSemanticParsing)
+  - [https://github.com/WING-NUS/slsql](https://github.com/WING-NUS/slsql)
+
+  `Exe_score`  
+
+  | BRIDGE^ + EG |92.6|91.9|
+  |-|-|-|
+  | BRIDGE |91.7|91.1|
+
+---
+---
+
+- **`T5 SeqGenSQL`**  🔥🔥
+  > 利用T5预训练语言（文本生成）模型, 将问题直接转换为SQL语句。同时，探索了如何利用表格模式信息对问题进行扩充，生成新的(silver)训练数据集
+
+  `Paper`
+  - [ ] Li N ,  Keller B ,  Butler M , et al. [SeqGenSQL -- A Robust Sequence Generation Model for Structured Query Language](https://arxiv.org/pdf/2011.03836.pdf)[J].  2020.
+  - [ ] Youssef M, Abdelkader R, et al.[
+SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by the Transformers Architecture and Association Rules](https://pdfs.semanticscholar.org/b877/233410484b2ff2add278105c53b6633d9d20.pdf)[J]. 2021
+
+  `Exe_score`  
+
+  |SeqGenSQL + EG |90.8|90.5|
+  |-|-|-|
+  |SeqGenSQL(T5-base + 250K silver data) |90.6|90.3|
+  |T5-large&mT5-large + Association Rules *| 91.2 | 91.0 |
+
+---
+---
+
+- **`Information Extraction Approach`**  
   > 信息抽取的方法: 采用统一的基于BERT的抽取模型来识别query提及的槽位类型，包括序列标注方法、关系抽取和基于文本匹配的链接方法。
 
   `Paper`
@@ -492,7 +542,9 @@ _3. SDSQL: Improving Text-to-SQL with Schema Dependency Learning_
   - [ ] Lin X V, Socher R, Xiong C. [Bridging Textual and Tabular Data for Cross-Domain Text-to-SQL Semantic Parsing](https://www.aclweb.org/anthology/2020.findings-emnlp.438.pdf)[C]//EMNLP: Findings. 2020: 4870-4888.
 
   `Code` 
+  - [https://github.com/salesforce/TabularSemanticParsing](https://github.com/salesforce/TabularSemanticParsing)
   - [https://github.com/WING-NUS/slsql](https://github.com/WING-NUS/slsql)
+
 
   `Log_score`  
 
