@@ -2,9 +2,11 @@
 ___(持续更新中...)___   
 **_recently update log:_**  
 
+_0. UnifiedSKG_  
 _1. SeaD: End-to-end Text-to-SQL Generation with Schema-aware Denoising_   
 _2. SeqGenSQL -- A Robust Sequence Generation Model for Structured Query Language （T5）_   
 _3. BRIDGE^_  
+_4. RatSQL + Pretraining (STRUG, GraPPa, GAP, GP) + NatSQL _ 
 
 
 
@@ -18,6 +20,7 @@ _3. BRIDGE^_
 [二、主要论文方法及代码实现 papers&code](#二主要论文方法及代码实现paperscode)  
 &nbsp;&nbsp;&nbsp;&nbsp;[1. WikiSQL](#1-wikisql)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2. Spider](#2-spider)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3. UnifiedSKG](#3-unifiedskg)   
 [三、相关资源扩展 extend-resources](#三相关资源扩展-extend-resources)  
 &nbsp;&nbsp;&nbsp;&nbsp;[1. Related Works](#1-relatedworks)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2. SQL2Seq](#1-sql2seq)  
@@ -423,7 +426,49 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ---
 ---
 
-- **`Microsoft works`(origin)** | **`IRNet`** | **`RATSQL`**  🔥🔥🔥  
+- **`RATSQL related works`**  🔥🔥🔥  
+
+  `Paper`  
+  - [ ] [1] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C]. ACL 2020. 
+    <!-- [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). -->
+  - [ ] [2] Deng X, Awadallah A H, Meek C, et al. [Structure-Grounded Pretraining for Text-to-SQL](https://arxiv.org/pdf/2010.12773.pdf)[C]. NAACL, 2021.
+  - [ ] [3] Gan Y ,  Chen X ,  Xie J , et al. [Natural SQL: Making SQL Easier to Infer from Natural Language Specifications](https://arxiv.org/abs/2109.05153)[C]. EMNLP Findings. 2021.
+  - [ ] [4] Yu T, Wu C S, Lin X V, et al. [GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2009.13845)[C]. ICLR 2021.
+  - [ ] [5] Shi P ,  Ng P ,  Wang Z , et al. [Learning Contextual Representations for Semantic Parsing with Generation-Augmented Pre-Training](https://arxiv.org/abs/2012.10309)[C]. AAAI 2021.
+  - [ ] [6] Zhao L, Cao H, Zhao Y. [GP: Context-free Grammar Pre-training for Text-to-SQL Parsers](https://arxiv.org/pdf/2101.09901.pdf)[J]. arXiv preprint arXiv:2101.09901, 2021.
+
+    
+  `Code`
+  - [https://github.com/Microsoft/rat-sql](https://github.com/Microsoft/rat-sql)
+  - [https://github.com/ygan/NatSQL](https://github.com/ygan/NatSQL)
+  - [https://github.com/awslabs/gap-text2sql](https://github.com/awslabs/gap-text2sql)
+  - 
+
+  `Exe_score`
+
+  | [3] RATSQL + GAP + NatSQL (DB content used) | 73.3 |
+  |:-:|:-:|
+  
+  `Log_score` 
+
+  | RAT-SQL + GraPPa + Adv (DB content used)|75.5|70.5|
+  |:-:|:-:|:-:|
+  | RATSQL++ + ELECTRA (DB content used)|75.7|70.3|
+  | [6] RATSQL + GraPPa + GP (DB content used)|72.8|69.8|
+  | [5] RATSQL + GAP (DB content used) |71.8|69.7|
+  | [4] RATSQL + GraPPa (DB content used) |73.4|69.6|
+  | [3] RATSQL + GAP + NatSQL (DB content used) | - | 68.7 |
+  | [2] RAT-SQL + STRUG (DB content used) | 72.6 |68.4|
+  | [1] RATSQL v3 + BERT (DB content used) |69.7|65.6|
+  | [1] RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
+  | [1] RATSQL v2 (DB content used)| 62.7| 57.2|
+  | [1] RATSQL + BERT | 60.8 | 55.7 |
+  | [1] RATSQL  |60.6|53.7|
+
+----
+----
+
+- **`IRNet related works`**  🔥🔥  
 
   `Blog & Video`  
   - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
@@ -435,36 +480,25 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
   - [ ] Liu H, Fang L, Liu Q, et al. [Leveraging Adjective-Noun Phrasing Knowledge for Comparison Relation Prediction in Text-to-SQL](https://www.aclweb.org/anthology/D19-1356.pdf)[C]. EMNLP-IJCNLP 2019.
   - [ ] Liu Q, Chen B, Lou J G, et al. [FANDA: A Novel Approach to Perform Follow-up Query Analysis](https://arxiv.org/pdf/1901.08259.pdf)[C]. AAAI 2019.
   - [ ] Liu Q, Chen B, Liu H, et al. [A Split-and-Recombine Approach for Follow-up Query Analysis](https://www.aclweb.org/anthology/D19-1535.pdf)[C]. EMNLP-IJCNLP 2019.
-  - [ ] Wang B, Shin R, Liu X, et al.[RAT-SQL: Relation-Aware Schema Encoding and Linking for Text-to-SQL Parsers ](https://arxiv.org/pdf/1911.04942.pdf)[C]. ACL 2020. 
-    <!-- [ICLR 2020](https://openreview.net/forum?id=H1egcgHtvB). -->
 
     
   `Code`
   - [https://github.com/microsoft/IRNet](https://github.com/microsoft/IRNet)
   - [https://github.com/neeraj-bhat/IRNet/tree/dev](https://github.com/neeraj-bhat/IRNet/tree/dev)
-  - [https://github.com/Microsoft/rat-sql](https://github.com/Microsoft/rat-sql)
 
+  
   `Log_score` 
 
-  |RAT-SQL + GraPPa + Adv (DB content used)|75.5|70.5|
-  |:-:|:-:|:-:|
-  |RATSQL + GraPPa + GP (DB content used)|72.8|69.8|
-  | RATSQL + GAP (DB content used) |71.8|69.7|
-  | RATSQL + GraPPa (DB content used) |73.4|69.6|
-  | RAT-SQL + STRUG (DB content used) | 72.6 |68.4|
-  | RATSQL v3 + BERT (DB content used) |69.7|65.6|
-  | RATSQL v2 + BERT (DB content used) | 65.8 | 61.9 |
   | IRNet++ + XLNet (DB content used) |65.5|60.1|
-  | RATSQL v2 (DB content used)| 62.7| 57.2|
-  | RATSQL + BERT | 60.8 | 55.7 |
+  |:-:|:-:|:-:|
+  | IRNet++ + XLNet (DB content used) |65.5|60.1|
   | IRNet-v2 + BERT  |63.9|55.0|
   | IRNet + BERT-Base | 61.9 | 54.7 |
-  | RATSQL  |60.6|53.7|
   | IRNet-v2 | 55.4 | 48.5 |
   | IRNet| 53.2 | 46.7 | 
 
 -------
---------
+-------
 
 - **`EditSQL`**  🔥
 
@@ -501,9 +535,10 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
   > 与自上而下的自回归分析相比，半自回归自底向上解析器具有多种优势。首先，由于每个解码步骤中的子树都是并行生成的，因此理论上的运行时间是对数而不是线性复杂度。其次，自下而上的方法学习在每个步骤上学习语义子程序的表示，而不是语义上模糊的部分树。最后，SMBOP基于Transformer的层将子树相互关联起来，与传统的beam-search不同，以探索过的其他树木为条件为树进行评分。
 
   `Paper`
-  - [ ] Rubin O, Berant J. [SmBoP: Semi-autoregressive Bottom-up Semantic Parsing](https://arxiv.org/pdf/2010.12412.pdf)[C]. NAACL, 2021.
+  - [ ] Rubin O, Berant J. [SmBoP: Semi-autoregressive Bottom-up Semantic Parsing](https://arxiv.org/pdf/2010.12412.pdf)[C]. NAACL, 2021.  
 
-  `Code`  [https://github.com/OhadRubin/SmBop](https://github.com/OhadRubin/SmBop)
+  `Code`  
+  [https://github.com/OhadRubin/SmBop](https://github.com/OhadRubin/SmBop)
 
   `Log_score`  
 
@@ -535,7 +570,7 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ----
 ----
 
-- **`BRIDGE `**   🔥🔥
+- **`BRIDGE `**   🔥
   > 
 
   `Paper`
@@ -560,7 +595,7 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ----
 ----
 
-- **`GAZP `**   🆕
+- **`GAZP `** 
   > GAZP combines a forward semantic parser with a backward utterance generator to synthesize data (e.g. utterances and SQL queries)
   in the new environment, then selects cycleconsistent examples to adapt the parser. Unlike data-augmentation, which typically synthesizes unverified examples in the training environment, GAZP synthesizes examples in the new environment whose inputoutput consistency are verified.
 
@@ -598,19 +633,40 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ---
 ---
 
+#### **`3. UnifiedSKG:`**  🔥🔥
+
+
+`Blog`  
+ - [ ] [结构化知识的统一建模和多任务学习](https://mp.weixin.qq.com/s/ddhZoOHa2eWKZoHESIiK3Q)
+
+`Code`  
+ - [ ] [https://github.com/hkunlp/unifiedskg](https://github.com/hkunlp/unifiedskg)
+
+`Paper`
+
+ - [ ] Xie T ,  Wu C H ,  Shi P , et al. [UnifiedSKG: Unifying and Multi-Tasking Structured Knowledge Grounding with Text-to-Text Language Models](https://arxiv.org/abs/2201.05966)[J]. arXiv e-prints, 2022.
+
+
 #### 三、相关资源扩展 (extend resources)
 ##### 1. Related Works  
 ##### 1.1 `Pre-training`  🔥🔥🔥 
+  > jointly learns representations of natural language utterances and table schemas by leveraging generation models to generate pre-train data.
+  - [ ] Shi P ,  Ng P ,  Wang Z , et al. [GAP: Learning Contextual Representations for Semantic Parsing with Generation-Augmented Pre-Training](https://arxiv.org/abs/2012.10309)[C]. AAAI 2021.
+  
   >  A novel weakly supervised Structure-Grounded pretraining framework (STRUG) for text-to-SQL that can effectively learn to capture text-table alignment based on a parallel text-table corpus. 
   - [ ]Deng X, Awadallah A H, Meek C, et al. [Structure-Grounded Pretraining for Text-to-SQL](https://arxiv.org/pdf/2010.12773.pdf)[C]. NAACL, 2021.
+
   >  A new method for Text-to-SQL parsing, Grammar Pre-training (GP),is proposed to decode deep relations between question and database.
   - [ ]Zhao L, Cao H, Zhao Y. [GP: Context-free Grammar Pre-training for Text-to-SQL Parsers](https://arxiv.org/pdf/2101.09901.pdf)[J]. arXiv preprint arXiv:2101.09901, 2021.
 
   >  An effective pre-training approach for table semantic parsing that learns a compositional inductive bias in the joint representations of textual and tabular data.
-  - [ ] Yu T, Wu C S, Lin X V, et al. [GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2009.13845)[J]. 2020. 🆕
+  - [ ] Yu T, Wu C S, Lin X V, et al. [GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2009.13845)[C]. ICLR 2021.
 
   > A pretrained language model that jointly learns representations for NL sentences and (semi-)structured tables.
-  - [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020.  
+  - [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020. 
+  
+  > this paper designs two novel pre-training objectives to impose the desired inductive bias into the learned representations for table pre-training. 
+  - [ ] Bowen Q, LiHan W, et al.[Linking-Enhanced Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2111.09486). 2021
 
   > Adapting a semantic parser trained on a single language.
   - [ ] Tom Sherborne, Yumo Xu, Mirella Lapata. [Bootstrapping a Crosslingual Semantic Parser](https://arxiv.org/abs/2004.02585).2020.
