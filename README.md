@@ -2,11 +2,12 @@
 ___(持续更新中...)___   
 **_recently update log:_**  
 
-_0. UnifiedSKG_  
-_1. SeaD: End-to-end Text-to-SQL Generation with Schema-aware Denoising_   
-_2. SeqGenSQL -- A Robust Sequence Generation Model for Structured Query Language （T5）_   
-_3. BRIDGE^_  
-_4. RatSQL + Pretraining (STRUG, GraPPa, GAP, GP) + NatSQL _ 
+_0. UnifiedSKG, UniSAr_  
+_1. GNN works: LGESQL, ShadowGNN, S$^2$SQL (SOTA)_   
+_2. RatSQL + Pretraining (STRUG, GraPPa, GAP, GP) + NatSQL_   
+_3. SeaD: End-to-end Text-to-SQL Generation with Schema-aware Denoising_   
+_4. SeqGenSQL -- A Robust Sequence Generation Model for Structured Query Language （T5）_   
+_5. BRIDGE^_  
 
 
 
@@ -20,10 +21,16 @@ _4. RatSQL + Pretraining (STRUG, GraPPa, GAP, GP) + NatSQL _
 [二、主要论文方法及代码实现 papers&code](#二主要论文方法及代码实现paperscode)  
 &nbsp;&nbsp;&nbsp;&nbsp;[1. WikiSQL](#1-wikisql)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2. Spider](#2-spider)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3. UnifiedSKG](#3-unifiedskg)   
+&nbsp;&nbsp;&nbsp;&nbsp;[3. UnifiedSKG](#3-unifiedskg--)   
 [三、相关资源扩展 extend-resources](#三相关资源扩展-extend-resources)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1. Related Works](#1-relatedworks)  
-&nbsp;&nbsp;&nbsp;&nbsp;[2. SQL2Seq](#1-sql2seq)  
+&nbsp;&nbsp;&nbsp;&nbsp;[1. Related Works](#1-related-works)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1. Pre-training](#11-pre-training--)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2. Systems](#12-systems)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3. Surveys](#13-surveys)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.4. Blogs](#14-blogs)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.5. Other Papers](#15-other-papers)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.6. Tools](#16-tools)  
+&nbsp;&nbsp;&nbsp;&nbsp;[2. SQL2Seq](#2-sql2seq)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3. 图神经网络 GNN](#3-图神经网络gnn)  
 
 
@@ -396,10 +403,13 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 #### **`2. Spider:`**  
 
 - **`GNN Encoding Seq2Seq`**  🔥
-  > 利用多表关联信息来建立一个表名、列名为节点，表内、表间关系为边的图。
-  > 通过GNN方法计算每一个节点(table item)的隐藏状态。
-  > 在seq2seq模型的encoding阶段，每个query word 向量对每个 table item隐藏向量进行attention计算， 并将attention权重作为每个query word的图表示。
-  > 在decoding阶段，结合语法规则，如果输出应为table item,则将输出向量与所有table item隐藏向量进行全连接打分，计算其关联程度。
+  > `Schema-GNN:` 利用多表关联信息来建立一个表名、列名为节点，表内、表间关系为边的图。通过GNN方法计算每一个节点(table item)的隐藏状态。在seq2seq模型的encoding阶段，每个query word 向量对每个 table item隐藏向量进行attention计算， 并将attention权重作为每个query word的图表示。在decoding阶段，结合语法规则，如果输出应为table item,则将输出向量与所有table item隐藏向量进行全连接打分，计算其关联程度。
+
+  > `LGESQL: ` 以往的建图方式存在问题：1）忽略了边在拓扑结构中丰富的语义信息 2）无法区分每个节点的局部和非局部的关系。本文方法(Line Graph Enhanced Text-toSQL)在不构建元路径的情况挖掘潜在的关系特征.借助Line Graph，消息可以有效的在连接节点之间以及拓扑有向边上进行传播。在图迭代过程中，局部和非局部关系被显著地集成。同时，还设计了图剪枝的辅助任务，来提高编码器的识别能力。
+
+  > `ShadowGNN: ` 在跨域结构下，传统的语义解析模型难以适应不可见的数据库模式。为了提高稀少且不可见模式的模型泛化能力，我们提出了一种新的架构ShadowGNN，它可以在抽象和语义级别处理schemas。具体地，通过忽略数据库中语义项的名称，抽象schemas利用图映射神经网络来获得question和schema的去符号化表示。在领域无关表示的基础上，利用关系感知转换器进一步提取question和schema之间的逻辑联系。最后，还应用了一个具有上下文无关语法的SQL解码器。
+
+  > `S²SQL: ` 以往的基于图的编码器，没有很好的建模question的句法结构。本文利用句法解析器来抽取question的信息，并将句法信息注入到question-schema图编码器中。同时还使用了解耦约束来引导不同的边关系嵌入，从而提升网络性能。
 
   `Paper`
   - [ ] Krishnamurthy J, Dasigi P, Gardner M. [Neural semantic parsing with type constraints for semi-structured tables](https://www.aclweb.org/anthology/D17-1160.pdf)[C]. EMNLP 2017.
@@ -407,17 +417,28 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
   - [ ] Bogin B, Gardner M, Berant J. [Representing Schema Structure with Graph Neural Networks for Text-to-SQL Parsing](https://arxiv.org/pdf/1905.06241.pdf)[C]. ACL 2019.  
   - [ ] Bogin B, Gardner M, Berant J. [Global Reasoning over Database Structures for Text-to-SQL Parsing](https://arxiv.org/pdf/1908.11214.pdf)[C]. EMNLP-IJCNLP 2019.
   - [ ] Shaw P, Massey P, Chen A, et al. [Generating Logical Forms from Graph Representations of Text and Entities](https://arxiv.org/pdf/1905.08407.pdf)[C]. ACL 2019.
-  - [ ] Kelkar A, Relan R, Bhardwaj V, et al. [Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker](https://arxiv.org/pdf/2002.00557.pdf)[J]. arXiv preprint arXiv:2002.00557, 2020. 🆕
+  - [ ] Kelkar A, Relan R, Bhardwaj V, et al. [Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker](https://arxiv.org/pdf/2002.00557.pdf)[J]. arXiv preprint arXiv:2002.00557, 2020. 
+  - [ ] Cao R ,  Chen L ,  Chen Z , et al. [LGESQL: Line Graph Enhanced Text-to-SQL Model with Mixed Local and Non-Local Relations](https://arxiv.org/abs/2106.01093)[C]. ACL. 2021.
+  - [ ] Chen Z ,  Chen L ,  Zhao Y , et al. [ShadowGNN: Graph Projection Neural Network for Text-to-SQL Parser](https://arxiv.org/pdf/2104.04689.pdf)[C]. NAACL. 2021.
+  - [ ] Hui B ,  Geng R ,  Wang L , et al. [S$^2$SQL: Injecting Syntax to Question-Schema Interaction Graph Encoder for Text-to-SQL Parsers](https://arxiv.org/abs/2203.06958)[C].  ACL Findings. 2022.
 
   `Code`  
   - [https://github.com/benbogin/spider-schema-gnn](https://github.com/benbogin/spider-schema-gnn)
   - [https://github.com/benbogin/spider-schema-gnn-global](https://github.com/benbogin/spider-schema-gnn-global)
-  - [https://github.com/amolk/Bertrand-DR](https://github.com/amolk/Bertrand-DR) 🆕
+  - [https://github.com/amolk/Bertrand-DR](https://github.com/amolk/Bertrand-DR)
+  - [https://github.com/rhythmcao/text2sql-lgesql](https://github.com/rhythmcao/text2sql-lgesql) 
+  - [https://github.com/WowCZ/shadowgnn](https://github.com/WowCZ/shadowgnn)
+  - 
 
   `Log_score`
 
-  |ShadowGNN (DB content used)|-|64.8|
+  | S$^2$SQL + ELECTRA (DB content used)|76.4|72.1|
   |:-:|:-:|:-:|
+  | LGESQL + ELECTRA (DB content used) | 75.1| 72.0 |
+  | LGESQL + BERT (DB content used | 74.1 | 68.3 |
+  | LGESQL + Glove (DB content used)  |67.6|62.8|
+  | ShadowGNN + RoBERTa (DB content used) |72.3|66.1|
+  | ShadowGNN (DB content used)|-|64.8|
   | GNN + Bertrand-DR | 57.9 | 54.6 |
   | Global-GNN  |52.7|47.4|
   | GNN | 40.7 | 39.4 |
@@ -500,7 +521,15 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 -------
 -------
 
-- **`EditSQL`**  🔥
+
+
+
+
+
+------
+------
+
+- **`EditSQL`**
 
   `Paper`
   - [ ] Zhang R, Yu T, Er H Y, et al. [Editing-Based SQL Query Generation for Cross-Domain Context-Dependent Questions](https://arxiv.org/pdf/1909.00786.pdf)[C]. EMNLP-IJCNLP 2019.
@@ -517,7 +546,7 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ----
 ----
 
-- **`RYANSQL`**  🔥
+- **`RYANSQL`**
 
   `Paper`
   - [ ] Choi D H, Shin M C, Kim E G, et al. [RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases]([RYANSQL: Recursively Applying Sketch-based Slot Fillings for Complex Text-to-SQL in Cross-Domain Databases](https://arxiv.org/pdf/2004.03125.pdf))[J]. 2020.
@@ -570,7 +599,7 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ----
 ----
 
-- **`BRIDGE `**   🔥
+- **`BRIDGE `** 
   > 
 
   `Paper`
@@ -690,6 +719,7 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ##### 1.5 `Other Papers`
   - [ ] Dhamdhere K, McCurley K S, Nahmias R, et al. [Analyza: Exploring data with conversation](https://dl.acm.org/citation.cfm?id=3025227)[C]//Proceedings of the 22nd International Conference on Intelligent User Interfaces. ACM, 2017.
   - [ ] Chen S, San A, Liu X, et al. [A Tale of Two Linkings: Dynamically Gating between Schema Linking and Structural Linking for Text-to-SQL Parsing](https://arxiv.org/abs/2009.14809)[C]. COLING 2020.
+  -  Dou L ,  Gao Y ,  Pan M , et al. [UniSAr: A Unified Structure-Aware Autoregressive Language Model for Text-to-SQL](https://arxiv.org/abs/2203.07781)[J].  2022.
 
 ##### 1.6 `Tools`
   -  Test suite for text2sql code: [https://github.com/taoyds/test-suite-sql-eval](https://github.com/taoyds/test-suite-sql-eval)   
