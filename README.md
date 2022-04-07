@@ -3,11 +3,10 @@ ___(持续更新中...)___
 **_recently update log:_**  
 
 _0. UnifiedSKG, UniSAr_  
-_1. GNN works: LGESQL, ShadowGNN, S$^2$SQL (SOTA)_   
+_1. GNN works: LGESQL, ShadowGNN, SADGA, S²SQL (SOTA)_   
 _2. RatSQL + Pretraining (STRUG, GraPPa, GAP, GP) + NatSQL_   
-_3. SeaD: End-to-end Text-to-SQL Generation with Schema-aware Denoising_   
-_4. SeqGenSQL -- A Robust Sequence Generation Model for Structured Query Language （T5）_   
-_5. BRIDGE^_  
+_3. PICARD, DT-Fixup, RaSaP_  
+_4. wikisql: SeaD, SeqGenSQL, BRIDGE^_   
 
 
 
@@ -409,6 +408,8 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 
   > `ShadowGNN: ` 在跨域结构下，传统的语义解析模型难以适应不可见的数据库模式。为了提高稀少且不可见模式的模型泛化能力，我们提出了一种新的架构ShadowGNN，它可以在抽象和语义级别处理schemas。具体地，通过忽略数据库中语义项的名称，抽象schemas利用图映射神经网络来获得question和schema的去符号化表示。在领域无关表示的基础上，利用关系感知转换器进一步提取question和schema之间的逻辑联系。最后，还应用了一个具有上下文无关语法的SQL解码器。
 
+  > `SADGA: ` Structure-Aware Dual Graph Aggregation Network, 设计了一种基于图结构的聚合方法来学习question图和schema图的映射关系。该聚合方法的特征来源于图的全局链接、局部链接以及双图聚合机制。
+
   > `S²SQL: ` 以往的基于图的编码器，没有很好的建模question的句法结构。本文利用句法解析器来抽取question的信息，并将句法信息注入到question-schema图编码器中。同时还使用了解耦约束来引导不同的边关系嵌入，从而提升网络性能。
 
   `Paper`
@@ -420,7 +421,8 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
   - [ ] Kelkar A, Relan R, Bhardwaj V, et al. [Bertrand-DR: Improving Text-to-SQL using a Discriminative Re-ranker](https://arxiv.org/pdf/2002.00557.pdf)[J]. arXiv preprint arXiv:2002.00557, 2020. 
   - [ ] Cao R ,  Chen L ,  Chen Z , et al. [LGESQL: Line Graph Enhanced Text-to-SQL Model with Mixed Local and Non-Local Relations](https://arxiv.org/abs/2106.01093)[C]. ACL. 2021.
   - [ ] Chen Z ,  Chen L ,  Zhao Y , et al. [ShadowGNN: Graph Projection Neural Network for Text-to-SQL Parser](https://arxiv.org/pdf/2104.04689.pdf)[C]. NAACL. 2021.
-  - [ ] Hui B ,  Geng R ,  Wang L , et al. [S$^2$SQL: Injecting Syntax to Question-Schema Interaction Graph Encoder for Text-to-SQL Parsers](https://arxiv.org/abs/2203.06958)[C].  ACL Findings. 2022.
+  - [ ] Cai R ,  Yuan J ,  Xu B , et al. SADGA: Structure-Aware Dual Graph Aggregation Network for Text-to-SQL(https://arxiv.org/abs/2111.00653)[C].  NeurIPS 2021.
+  - [ ] Hui B ,  Geng R ,  Wang L , et al. [S²SQL: Injecting Syntax to Question-Schema Interaction Graph Encoder for Text-to-SQL Parsers](https://arxiv.org/abs/2203.06958)[C].  ACL Findings. 2022.
 
   `Code`  
   - [https://github.com/benbogin/spider-schema-gnn](https://github.com/benbogin/spider-schema-gnn)
@@ -428,12 +430,14 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
   - [https://github.com/amolk/Bertrand-DR](https://github.com/amolk/Bertrand-DR)
   - [https://github.com/rhythmcao/text2sql-lgesql](https://github.com/rhythmcao/text2sql-lgesql) 
   - [https://github.com/WowCZ/shadowgnn](https://github.com/WowCZ/shadowgnn)
+  - [https://github.com/DMIRLAB-Group/SADGA](https://github.com/DMIRLAB-Group/SADGA)
   - 
 
   `Log_score`
 
-  | S$^2$SQL + ELECTRA (DB content used)|76.4|72.1|
+  | S²SQL + ELECTRA (DB content used)|76.4|72.1|
   |:-:|:-:|:-:|
+  | SADGA + GAP (DB content used) |73.1 | 70.1|
   | LGESQL + ELECTRA (DB content used) | 75.1| 72.0 |
   | LGESQL + BERT (DB content used | 74.1 | 68.3 |
   | LGESQL + Glove (DB content used)  |67.6|62.8|
@@ -489,7 +493,7 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 ----
 ----
 
-- **`IRNet related works`**  🔥🔥  
+- **`MSRA: IRNet related works`**  🔥🔥  
 
   `Blog & Video`  
   - [智能数据分析技术，解锁Excel“对话”新功能 Conversational Data Analysis](https://www.msra.cn/zh-cn/news/features/conversational-data-analysis)
@@ -520,10 +524,61 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 
 -------
 -------
+- **`MSRA DKI Group's works`**  🔥🔥  
 
+  `Paper & Code`
+  - [https://github.com/microsoft/ContextualSP](https://github.com/microsoft/ContextualSP)
 
+  `Log_score` 
 
+  | ETA + BERT (DB content used) |70.8|65.3|
+  |:-:|:-:|:-:|
 
+-----
+-----
+- **`PICARD`**
+
+  `Paper`
+  - [ ] Scholak T ,  Schucher N ,  Bahdanau D . [PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models](https://arxiv.org/abs/2109.05093)[C].  EMNLP. 2021.
+
+  `Code`
+  - [https://github.com/ElementAI/picard](https://github.com/ElementAI/picard)
+
+  `Log_score`  
+
+  | PICARD + T5-3B (DB content used)|75.5|71.9|
+  |:-:|:-:|:-:|
+
+  `Exe_score` 
+  | PICARD + T5-3B (DB content used)| - | 75.1 |
+  |:-:|:-:|:-:|
+
+-----
+-----
+- **`DT-Fixup SQL-SP`**
+
+  `Paper`
+  - [ ] Xu P ,  Kumar D ,  Yang W , et al. [Optimizing Deeper Transformers on Small Datasets](https://arxiv.org/abs/2012.15355)[C]. ACL. 2021.
+
+  `Code`
+  - [https://github.com/BorealisAI/DT-Fixup](https://github.com/BorealisAI/DT-Fixup)
+
+  `Log_score`  
+
+  | DT-Fixup SQL-SP + RoBERTa (DB content used)|75.0|70.9|
+  |:-:|:-:|:-:|
+
+-----
+-----
+- **`RaSaP`**
+
+  `Paper`
+  - [ ] Hua Ng  J ,  Wa Ng  Y ,  Wa Ng  Y , et al. [Relation Aware Semi-autoregressive Semantic Parsing for NL2SQL](https://arxiv.org/abs/2108.00804)[J].  2021.
+
+  `Log_score`  
+
+  | RaSaP + ELECTRA (DB content used) |74.7|69.0|
+  |:-:|:-:|:-:|
 
 
 ------
@@ -590,6 +645,7 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 
   `Code` 
   - [https://github.com/salesforce/TabularSemanticParsing](https://github.com/salesforce/TabularSemanticParsing)
+  - [https://github.com/WING-NUS/slsql](https://github.com/WING-NUS/slsql)
 
   `Log_score`  
 
@@ -690,7 +746,13 @@ SQL Generation from Natural Language: A Sequence-to-Sequence Model Powered by th
 
   >  An effective pre-training approach for table semantic parsing that learns a compositional inductive bias in the joint representations of textual and tabular data.
   - [ ] Yu T, Wu C S, Lin X V, et al. [GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2009.13845)[C]. ICLR 2021.
+  
+  > this paper designs two novel pre-training objectives to impose the desired inductive bias into the learned representations for table pre-training. 
+  - [ ] Qin B ,  Wang L ,  Hui B , et al. [SDCUP: Schema Dependency-Enhanced Curriculum Pre-Training for Table Semantic Parsing](https://arxiv.org/abs/2111.09486)[J]. 2021.
 
+  > table pre-training can be realized by learning a neural SQL executor over a synthetic corpus, which is obtained by automatically synthesizing executable SQL queries. 
+  - [ ] Liu Q ,  Chen B ,  Guo J , et al. [TAPEX: Table Pre-training via Learning a Neural SQL Executor(https://arxiv.org/abs/2107.07653)[J].  2021.
+  
   > A pretrained language model that jointly learns representations for NL sentences and (semi-)structured tables.
   - [ ] Pengcheng Yin, Graham Neubig, et al. [TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data](https://arxiv.org/abs/2005.08314)[C]. ACL 2020. 
   
