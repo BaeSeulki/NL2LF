@@ -125,7 +125,7 @@ _4. wikisql: SeaD, SeqGenSQL, BRIDGE^_
     1. Zhang X, Yin F, Ma G, et al. [M-SQL: Multi-Task Representation Learning for Single-Table Text2sql Generation](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9020099)[J]. IEEE Access, 2020, 8: 43156-43167. 🔥
 
 ---
-- **DuSQL**  🔥
+- **DuSQL**  
   > 百度2020语言与智能技术竞赛：语义解析任务，大规模开放领域的复杂中文Text-to-SQL数据集
   > 数据特点：
   > 1. 包含200个Database以及对应的2.3万对(question, SQL query)，其中18000对用于训练集，2000用于验证集，3000用于测试集。
@@ -173,6 +173,13 @@ _4. wikisql: SeaD, SeqGenSQL, BRIDGE^_
      2. [语义解析 (Text-to-SQL) 技术研究及应用 上篇](https://mp.weixin.qq.com/s/FtsA4O_VTUqhhYS3Gq3G8Q)  
      3. [语义解析 (Text-to-SQL) 技术研究及应用 下篇](https://mp.weixin.qq.com/s/5lTLW5OOuRMo2zjbzMxr_Q)  
      4. [UNIT结构化知识问答产品](https://ai.baidu.com/forum/topic/show/957042)  
+
+---
+- **CCKS2022：金融NL2SQL评测**
+  > 现有NL2SQL数据和方法主要关注“封闭场景指定库/表”设定，这很难满足业务范围动态发展的需求。从领域特性来看，金融数据多为时间序列，包括日频行情、季频财报、年度GDP、不定期股票质押解质押等，这无疑会增大问题转SQL难度。
+
++ `Home` [https://www.biendata.xyz/competition/fin_nl2sql/](https://www.biendata.xyz/competition/fin_nl2sql/)
++ `DOC` [评测任务书-金融NL2SQL评测任务](http://sigkg.cn/ccks2022/wp-content/uploads/2022/04/CCKS2022-%E9%87%91%E8%9E%8DNL2SQL.docx)
 
 
 #### 二、主要论文方法及代码实现（Papers&Code）
